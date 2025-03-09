@@ -1,0 +1,25 @@
+import {ref} from "vue";
+
+export const routePosition = ref(0);
+
+const hostControlChannel = new BroadcastChannel('HostControl');
+const localBroadcastChannel: { callback: (arg: { data: { command: string } }) => void } = {
+  callback: () => {
+  },
+};
+
+export function broadcastCommand(command: {
+  command: 'Next' | 'Prev' | 'Jump',
+  to?: number,
+}) {
+  hostControlChannel.postMessage(command);
+}
+
+export function localBroadcast(command: { command: 'Next' | 'Prev' | 'Jump' | 'Scores', to?: number }) {
+  localBroadcastChannel.callback({ data: command });
+}
+
+export function onHostBroadcast(callback: (event: any) => void) {
+  localBroadcastChannel.callback = callback;
+  hostControlChannel.onmessage = callback;
+}
