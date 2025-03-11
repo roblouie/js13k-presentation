@@ -1,1 +1,18 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+.content {
+    .slide-header {
+        font-size: 3em;
+    }
+
+    .slide-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .slide-content.centered-with-header {
+        margin-top: -3em;
+    }
+}

@@ -32,29 +32,20 @@ function wireBroadcasts() {
 <template>
   <div class="full-wrapper content">
     <router-view v-slot="{ Component }">
-        <keep-alive include="PlayerView">
-            <component :is="Component" />
-        </keep-alive>
+      <component :is="Component" />
     </router-view>
   </div>
 </template>
 
-<style>
-.full-wrapper a {
-  color: white;
-  text-decoration: none;
-}
-</style>
-
 <style scoped>
 
 .full-wrapper {
+  padding: 2em;
   height: 100vh;
   overflow: hidden;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  z-index: -2;
   display: flex;
   flex-direction: column;
   align-items: center;

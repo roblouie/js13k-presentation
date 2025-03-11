@@ -15,12 +15,12 @@ Making big games in only 13 kilobytes
 </template>
 <style scoped>
 h1 {
-  font-size: 10em;
+  font-size: 5em;
 }
 
 .bottom-text {
-  font-size: 2em;
+  font-size: 1em;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 </style>
