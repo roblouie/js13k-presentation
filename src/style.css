@@ -1,5 +1,13 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
+:root {
+    --bulma-size-normal: 1em;
+}
+
+html {
+    overflow: hidden;
+}
+
 .content {
     .slide-header {
         font-size: 3em;
@@ -12,7 +20,11 @@
         height: 100%;
     }
 
-    .slide-content.centered-with-header {
+    .centered-with-header {
         margin-top: -3em;
+    }
+
+    .flex-column {
+        display: flex;
     }
 }

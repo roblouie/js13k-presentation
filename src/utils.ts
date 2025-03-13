@@ -1,3 +1,6 @@
+import type {RouteRecordRaw} from "vue-router";
+import {ref} from "vue";
+
 export function useRunOncePer() {
   let hasRun = false;
   let timeoutId: number;
@@ -39,4 +42,22 @@ export function smartFontSizeCalculator(maxFontSizeVh: number, containerElement:
 
     correctFontSize += growStep;
   }
+}
+
+const slideCounter = ref(0);
+
+export function generateRoutesFromList(slides: { slide: any, notes: string[] }[]): RouteRecordRaw[] {
+  //@ts-ignore
+  return slides.map(item => {
+    slideCounter.value++;
+
+    return {
+      path: slideCounter.value.toString(),
+      name: slideCounter.value.toString(),
+      component: item.slide,
+      meta: {
+        notes: item.notes,
+      }
+    }
+  });
 }

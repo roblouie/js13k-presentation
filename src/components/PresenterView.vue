@@ -39,7 +39,7 @@ function onPrevClick() {
 const router = useRouter();
 
 function launchDisplay() {
-  const routeData = router.resolve({ path: 'presentation/1' });
+  const routeData = router.resolve(slideRoutes[0]);
   window.open(routeData.href, '_blank');
 }
 
