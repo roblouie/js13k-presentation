@@ -7,6 +7,7 @@
 
 html {
     overflow: hidden;
+    font-size: 3vh;
 }
 
 pre[class*="language-"] {
@@ -37,4 +38,26 @@ pre[class*="language-"] {
 
 .full-height {
     height: 100%;
+}
+
+.my-editor {
+    /* we dont use `language-` classes anymore so thats why we need to add background and text color manually */
+    background: #1f2229;
+    color: #ccc;
+
+    /* you must provide font-family font-size line-height. Example: */
+    font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+    line-height: 1.5;
+    padding: 1em;
+}
+
+.editor-result-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+/* optional class for removing the outline */
+.prism-editor__textarea:focus {
+    outline: none;
 }
