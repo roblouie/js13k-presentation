@@ -7,24 +7,20 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
   <BaseSlideTemplate>
 
     <template v-slot:header>
-      JS13K Overview
+      Perlin Noise
     </template>
 
     <template v-slot:default>
-      <ul>
-        <li>
-          JS13K Is a game development competition where your game must run in the browser,
-          and your game must be 13kb or less in size.
-        </li>
-        <li>
-          You must submit a single zip file with your entire game. When unzipped it must run
-          without an internet connection (no sneakily loading data behind the scenes).
-        </li>
-        <li>
-          Each year there is a different theme you must follow.
-        </li>
-        <li>You get 30 days to complete the game</li>
-      </ul>
+      <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-evenly">
+      <img src="./perlin-animation.gif" style="height: 45%;" />
+<!--        <div>-->
+<!--        Ken Perlin developed Perlin noise in 1983 as a result of his frustration with the "machine-like" look of-->
+<!--        computer-generated imagery (CGI) at the time.[1] He formally described his findings in a SIGGRAPH paper in-->
+<!--        1985 called "An Image Synthesizer".[2] He developed it after working on Disney's computer animated sci-fi-->
+<!--        motion picture Tron (1982) for the animation company Mathematical Applications Group (MAGI).[3] In 1997,-->
+<!--        Perlin was awarded an Academy Award for Technical Achievement for creating the algorithm-->
+<!--        </div>-->
+      </div>
     </template>
 
   </BaseSlideTemplate>

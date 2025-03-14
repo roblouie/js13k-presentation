@@ -1,6 +1,8 @@
 import GeneratingTextures2 from "./GeneratingTextures2.vue";
 import GeneratingTextures1 from "./GeneratingTextures1.vue";
 import SeededRandomGrid from "./SeededRandomGrid.vue";
+import SeededRandomGrid2 from "./SeededRandomGrid2.vue";
+import PerlinNoise1 from "./PerlinNoise1.vue";
 
 export const howTexturesWorkRoutes = [
   { slide: GeneratingTextures1, notes: [] },
@@ -17,4 +19,9 @@ function seededRandom(x) {
     ] },
 
   { slide: SeededRandomGrid, notes: [] },
+  { slide: SeededRandomGrid2, notes: [
+      "You can scale this up, but other than making it black and white for tv static, it isn't good for much on it's own"
+    ]
+  },
+  { slide: PerlinNoise1, notes: [] },
 ];
