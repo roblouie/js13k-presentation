@@ -1,5 +1,6 @@
 import GeneratingTextures2 from "./GeneratingTextures2.vue";
 import GeneratingTextures1 from "./GeneratingTextures1.vue";
+import SeededRandomGrid from "./SeededRandomGrid.vue";
 
 export const howTexturesWorkRoutes = [
   { slide: GeneratingTextures1, notes: [] },
@@ -14,4 +15,6 @@ function seededRandom(x) {
 }
     `
     ] },
+
+  { slide: SeededRandomGrid, notes: [] },
 ];
