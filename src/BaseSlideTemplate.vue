@@ -4,7 +4,9 @@
 <template>
   <div class="wrapper">
     <div class="header">
-      <slot name="header"></slot>
+      <div class="header-offset">
+        <slot name="header"></slot>
+      </div>
     </div>
 
     <div class="main">
@@ -29,6 +31,11 @@
   font-weight: bold;
   color: white;
   letter-spacing: 0.01em;
+}
+
+.header-offset {
+  margin-top: -0.2em;
+  margin-bottom: 0.2em;
 }
 
 .main {

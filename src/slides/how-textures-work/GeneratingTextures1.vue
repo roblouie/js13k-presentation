@@ -56,15 +56,13 @@ function drawRandomToCanvas() {
 
     <template v-slot:default>
       <div class="editor-result-horizontal">
+
         <div>
           <canvas ref="canvas" width="3" height="3" />
           <div class="is-flex is-align-items-center is-justify-content-center mt-3">
-
             <button class="button is-primary" @click="drawRandomToCanvas()">Redraw</button>
-
           </div>
         </div>
-
 
         <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
 
