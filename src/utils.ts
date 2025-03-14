@@ -72,3 +72,18 @@ export class EnhancedImageData extends ImageData {
     this.data[pixelStart + 3] = alpha;
   }
 }
+
+export function useDebounce(): [(callback: (args: any[]) => any, wait: number) => void, () => void] {
+  let debounceTimeout: number;
+
+  function debounce(callback: (args: any[]) => any, wait: number) {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = window.setTimeout(callback, wait);
+  }
+
+  function clearDebounce() {
+    clearTimeout(debounceTimeout);
+  }
+
+  return [debounce, clearDebounce];
+}

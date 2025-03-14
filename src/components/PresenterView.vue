@@ -56,7 +56,7 @@ const activeSlideRoute = computed(() => {
 
   <div>
     <ul>
-      <li v-for="note in activeSlideRoute.meta.notes" :key="note">{{ note }}</li>
+      <li v-for="note in activeSlideRoute.meta.notes" :key="note" style="white-space: pre">{{ note }}</li>
     </ul>
   </div>
 </template>

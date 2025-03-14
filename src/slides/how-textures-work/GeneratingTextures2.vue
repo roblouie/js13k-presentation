@@ -4,19 +4,21 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 import {computed, onMounted, ref, watch} from "vue";
 import {highlight, languages} from 'prismjs';
 import {PrismEditor} from "vue-prism-editor";
+import {useDebounce} from "../../utils.ts";
 
 const canvas = ref<HTMLCanvasElement>(null);
 
-// const fract = (x: number) => x - Math.floor(x);
-
 const code = ref(`function seededRandom(x) {
-  const fract = (n) => n - Math.floor(n);
-  return fract(Math.sin(x) * 1);
+  return Math.sin(x);
 }`);
 
 onMounted(drawLine);
 
-watch(code, drawLine);
+const [debounce] = useDebounce();
+
+watch(code, () => {
+  debounce(drawLine, 300);
+});
 
 function drawLine() {
   const context = canvas.value!.getContext('2d')!;
@@ -49,7 +51,7 @@ function drawLine() {
     context.moveTo(seededRandom(0), height / 2);
 
     for (let x = 0; x < width; x++) {
-      const virtualX = x / 75;
+      const virtualX = x / 79.5;
       const y = seededRandom(virtualX);
       context.lineTo(x, y * -200 + (height / 2));
     }
@@ -64,9 +66,14 @@ function drawLine() {
 
 const input = ref(0);
 const output = computed(() => {
-  let seededRandom;
-  eval(`seededRandom = ${code.value}`);
-  return seededRandom(input.value);
+  try {
+    let seededRandom;
+    eval(`seededRandom = ${code.value}`);
+    return seededRandom(input.value);
+  } catch(e) {
+    return '';
+  }
+
 })
 
 </script>
@@ -75,7 +82,7 @@ const output = computed(() => {
   <BaseSlideTemplate>
 
     <template v-slot:header>
-      Random number
+      Random Number
     </template>
 
     <template v-slot:default>
@@ -86,13 +93,13 @@ const output = computed(() => {
 <!--      TODO: Add input you can input number and print output-->
 
 <!--      TODO: Show example of drawing like 8x8 color tiles with Math.random vs this formula-->
-        <div>
+        <div style="width: 100%">
           <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
 
           <div class="is-flex is-align-items-center mt-3">
 
             <div style="width: 6em;" class="mr-6">
-              <input class="input" placeholder="Input" v-model="input" />
+              <input class="input" placeholder="Input" type="number" v-model="input" />
             </div>
 
             <div style="flex-grow: 1">
@@ -107,7 +114,10 @@ const output = computed(() => {
 </template>
 
 <style scoped>
-
+canvas {
+  width: 20em;
+  height: 20em;
+}
 
 </style>
 
