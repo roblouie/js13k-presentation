@@ -25,18 +25,29 @@ async function getQuestion() {
   const data = new Uint8Array(bufferLength);
 
   const context = canvas.value!.getContext('2d')!;
-  console.log(context);
   const canvasSize = new DOMPoint(canvas.value!.width, canvas.value!.height);
   const barWidth = (canvasSize.x / data.length) * 1.6;
+  const canvasCenterX = canvasSize.x / 2;
 
   const getSoundData = () => {
     analyser.getByteFrequencyData(data);
     context.clearRect(0, 0, canvasSize.x, canvasSize.y);
 
+    let direction = 1;
+    let offset = 0
+
     data.forEach((value, index) => {
-      const barHeight = value * 4;
+      const barHeight = value * 3;
+      const barX = canvasCenterX + barWidth * offset * direction;
+
+      if (index % 2 === 0) {
+        offset++;
+      }
+
+      direction *= -1;
+
       context.fillStyle = `rgba(66, 88, 255, ${value / 90})`;
-      context.fillRect(barWidth * index, canvasSize.y, barWidth, -barHeight);
+      context.fillRect(barX, canvasSize.y, barWidth, -barHeight);
     });
 
     animationFrameId = requestAnimationFrame(getSoundData);
@@ -55,7 +66,7 @@ async function getQuestion() {
     <template v-slot:default>
       <div class="full-height is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
         <canvas ref="canvas" width="1280" height="560" class="mb-6" />
-        <audio controls ref="audioPlayer" src="/elevator-door-and-ding.mp3"></audio>
+        <audio autoplay="true" controls ref="audioPlayer" src="/elevator-door-and-ding.mp3"></audio>
       </div>
 
       Six second clip of elevator

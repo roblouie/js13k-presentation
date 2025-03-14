@@ -11,22 +11,19 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
     </template>
 
     <template v-slot:default>
-      <div  class="centered-with-header is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-        <div class="answer has-text-weight-bold">127.7 kb</div>
-        <div class="subtext">~9.8 x the size the entire game is allowed to be</div>
+      <div class="full-height flex-column is-justify-content-center is-align-items-center">
+        <img src="./threejs.png" />
       </div>
+      Three.js zipped is ~13x the size the game is allowed to
     </template>
 
   </BaseSlideTemplate>
 </template>
 
 <style scoped>
-.answer {
-  font-size: 7em;
-}
-
-.subtext {
-  font-size: 2em;
+ul {
+  font-size: 1.7em;
+  padding: 0 2em;
 }
 
 li {
