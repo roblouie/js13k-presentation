@@ -1,5 +1,5 @@
-import DemoVideo from "./DemoVideo.vue";
+import GeneratingTextures2 from "./GeneratingTextures2.vue";
 
-export const demoVideoRoutes = [
-  { slide: DemoVideo, notes: [] },
+export const howTexturesWorkRoutes = [
+  { slide: GeneratingTextures2, notes: [] },
 ];

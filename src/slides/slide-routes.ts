@@ -9,6 +9,7 @@ import Slide6 from "./6/Slide6.vue";
 import {howSmallIs13kRoutes} from "./how-small-is-13k/how-small-is-13k.routes.ts";
 import {generateRoutesFromList} from "../utils.ts";
 import {demoVideoRoutes} from "./demo-video/demo-video.routes.ts";
+import {howTexturesWorkRoutes} from "./how-textures-work/how-textures-work.routes.ts";
 
 const slideRoutesInt = generateRoutesFromList([
   { slide: Slide0, notes: []},
@@ -24,6 +25,7 @@ export const slideRoutes = [
   ...slideRoutesInt,
   ...generateRoutesFromList(howSmallIs13kRoutes),
   ...generateRoutesFromList(demoVideoRoutes),
+  ...generateRoutesFromList(howTexturesWorkRoutes)
 ]
 
 // export const slideRoutes: Array<RouteRecordRaw> = [
