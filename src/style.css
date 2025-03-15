@@ -66,3 +66,7 @@ pre[class*="language-"] {
 /*    height: 100%;*/
 /*    overflow: unset;*/
 /*}*/
+
+.prism-editor-wrapper .prism-editor__line-numbers {
+    overflow: unset !important;
+}

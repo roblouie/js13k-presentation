@@ -6,6 +6,7 @@
 import {onMounted, ref} from "vue";
 import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 import {highlight, languages} from "prismjs";
+import "prismjs/components/prism-typescript";
 import {PrismEditor} from "vue-prism-editor";
 import {EnhancedImageData} from "../../utils.ts";
 
@@ -14,7 +15,7 @@ const canvas = ref<HTMLCanvasElement>(null);
 const code = `class PerlinNoise {
   private perm: number[] = [];
 
-  constructor(seed: number = Math.random() * 256) {
+  constructor(seed: number) {
     this.perm = this.generatePermutationTable(seed);
   }
 
@@ -198,7 +199,7 @@ function drawRandomToCanvas() {
           </div>
         </div>
 
-        <PrismEditor class="my-editor" line-numbers v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
+        <PrismEditor class="my-editor" line-numbers v-model="code" :highlight="code => highlight(code, languages.ts, 'ts')" />
 
       </div>
     </template>
