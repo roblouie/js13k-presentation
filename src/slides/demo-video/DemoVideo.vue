@@ -6,7 +6,7 @@
 
 
   <div class="full-height flex-column is-justify-content-center is-align-items-center">
-    <video controls src="/finished.mp4" />
+    <video autoplay controls src="/finished.mp4" />
   </div>
 </template>
 

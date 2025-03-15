@@ -3,6 +3,9 @@ import GeneratingTextures1 from "./GeneratingTextures1.vue";
 import SeededRandomGrid from "./SeededRandomGrid.vue";
 import SeededRandomGrid2 from "./SeededRandomGrid2.vue";
 import PerlinNoise1 from "./PerlinNoise1.vue";
+import PerlinNoise2 from "./PerlinNoise2.vue";
+import PerlinNoise3 from "./PerlinNoise3.vue";
+import PerlinNoise4 from "./PerlinNoise4.vue";
 
 export const howTexturesWorkRoutes = [
   { slide: GeneratingTextures1, notes: [] },
@@ -24,4 +27,7 @@ function seededRandom(x) {
     ]
   },
   { slide: PerlinNoise1, notes: [] },
+  { slide: PerlinNoise2, notes: [] },
+  { slide: PerlinNoise3, notes: [] },
+  { slide: PerlinNoise4, notes: [] }
 ];

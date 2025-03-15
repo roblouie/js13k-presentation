@@ -12,7 +12,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 
     <template v-slot:default>
       <div  class="centered-with-header is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-        <div class="answer has-text-weight-bold">127.7 kb</div>
+        <div class="answer has-text-weight-bold has-text-primary">127.7 kb</div>
         <div class="subtext">~9.8 x the size the entire game is allowed to be</div>
       </div>
     </template>

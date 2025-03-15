@@ -62,6 +62,7 @@ pre[class*="language-"] {
     outline: none;
 }
 
-.prism-editor-wrapper .prism-editor__container {
-    height: 100%;
-}
+/*.prism-editor-wrapper .prism-editor__container {*/
+/*    height: 100%;*/
+/*    overflow: unset;*/
+/*}*/

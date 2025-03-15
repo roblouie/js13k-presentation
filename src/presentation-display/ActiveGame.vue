@@ -30,11 +30,9 @@ function wireBroadcasts() {
 </script>
 
 <template>
-  <div class="full-wrapper content">
-    <router-view v-slot="{ Component }">
-      <component :is="Component" />
-    </router-view>
-  </div>
+  <router-view v-slot="{ Component }">
+    <component :is="Component" />
+  </router-view>
 </template>
 
 <style scoped>

@@ -11,8 +11,8 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
     </template>
 
     <template v-slot:default>
-      <div class="full-height flex-column is-justify-content-center is-align-items-center">
-      <img src="./sky.png" />
+      <div class="is-flex-grow-1 is-flex flex-column is-justify-content-center is-align-items-center">
+        <img src="./sky.png" />
       </div>
       240x160 low res sky png (lossless compression set to max)
     </template>

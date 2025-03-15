@@ -11,7 +11,10 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
     </template>
 
     <template v-slot:default>
-      <img src="./486.png" />
+      <div class="is-flex-grow-1 is-flex flex-column is-justify-content-center is-align-items-center">
+
+        <img src="./486.png" />
+      </div>
       <p>i486</p>
     </template>
 
@@ -22,6 +25,10 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 ul {
   font-size: 1.7em;
   padding: 0 2em;
+}
+
+img {
+  height: 20em;
 }
 
 li {

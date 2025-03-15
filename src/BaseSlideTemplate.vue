@@ -20,9 +20,10 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   align-items: center;
+  padding: 2em;
 }
 
 .header {

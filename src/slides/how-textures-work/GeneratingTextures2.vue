@@ -90,9 +90,6 @@ const output = computed(() => {
 
         <canvas ref="canvas" width="500" height="500" />
 
-<!--      TODO: Add input you can input number and print output-->
-
-<!--      TODO: Show example of drawing like 8x8 color tiles with Math.random vs this formula-->
         <div style="width: 100%">
           <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
 
