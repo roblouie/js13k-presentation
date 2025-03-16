@@ -1,0 +1,32 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+    <filter id="rw">
+        <feTurbulence type="fractalNoise" baseFrequency="0.1, 0.007" numOctaves="6" stitchTiles="stitch" />
+        <feComposite in="s" operator="arithmetic" k2="0.5" k3="0.6" />
+        <feComponentTransfer>
+            <feFuncA type="table" tableValues="0, .1, .2, .3, .4, .2, .4"/>
+        </feComponentTransfer>
+        <feDiffuseLighting color-interpolation-filters="sRGB" surfaceScale="3" lighting-color="#6e3f2b">
+            <feDistantLight azimuth="110" elevation="48"/>
+        </feDiffuseLighting>
+    </filter>
+    <rect height="512" width="512" filter="url(#rw)"/>
+</svg>
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+    <filter id="rw">
+        <feTurbulence type="fractalNoise" baseFrequency="0.1, 0.007" numOctaves="6" stitchTiles="stitch" />
+        <feComposite in="s" operator="arithmetic" k2="0.5" k3="0.6" />
+        <feComponentTransfer>
+            <feFuncA type="table" tableValues="0, .1, .2, .3, .4, .2, .4"/>
+        </feComponentTransfer>
+        <feDiffuseLighting color-interpolation-filters="sRGB" surfaceScale="3" lighting-color="#6e3f2b">
+            <feDistantLight azimuth="110" elevation="48"/>
+        </feDiffuseLighting>
+    </filter>
+    <rect height="512" width="512" filter="url(#rw)"/>
+</svg>
+
+<style>
+    background-color {
+        background-color: #6e3f2b;
+    }
+</style>

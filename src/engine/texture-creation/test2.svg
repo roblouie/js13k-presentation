@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512px" height="512px" style="filter: invert()">
+    <filter id="filter" x="-0.1%" width="100%" height="100%" primitiveUnits="objectBoundingBox">
+        <feTurbulence seed="7" type="fractalNoise" baseFrequency=".005" numOctaves="5" result="n"></feTurbulence>
+        <feComposite in="SourceAlpha" operator="in"></feComposite>
+        <feDisplacementMap in2="n" scale="1"></feDisplacementMap>
+    </filter>
+    <rect id="l" width="100%" height="100%" filter="url(#filter)"></rect>
+
+    <rect width="100%" height="100%" fill="#fff"></rect>
+    <use href="#l" x="33%" y="15" transform="scale(1.5, 1.3)"></use>
+    <use href="#l" x="-33%" y="15" transform="rotate(.1) scale(-1.5 1.3)"></use>
+</svg>
