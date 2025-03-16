@@ -24,6 +24,7 @@ onMounted(() => {
 function onNextClick() {
   if (routePosition.value < slideRoutes.length - 1) {
     routePosition.value++;
+    localStorage.setItem('js13k_presentation_slide', routePosition.value.toString())
   }
 
   broadcastCommand({ command: 'Next' });
@@ -32,6 +33,7 @@ function onNextClick() {
 function onPrevClick() {
   if (routePosition.value >= 1) {
     routePosition.value--;
+    localStorage.setItem('js13k_presentation_slide', routePosition.value.toString())
   }
   broadcastCommand({ command: 'Prev' });
 }

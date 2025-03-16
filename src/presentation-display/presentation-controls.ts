@@ -1,6 +1,8 @@
 import {ref} from "vue";
 
-export const routePosition = ref(0);
+const posFromStorage = localStorage.getItem('js13k_presentation_slide');
+const slidePos = posFromStorage ? parseInt(posFromStorage, 10) : 0;
+export const routePosition = ref(slidePos);
 
 const hostControlChannel = new BroadcastChannel('HostControl');
 const localBroadcastChannel: { callback: (arg: { data: { command: string } }) => void } = {

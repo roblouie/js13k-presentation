@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
-import './style.css'
+import './bulma.css';
+import './style.css';
 import App from './App.vue'
 import router from "./router.ts";
 import 'vue-prism-editor/dist/prismeditor.min.css'; // import the styles somewhere

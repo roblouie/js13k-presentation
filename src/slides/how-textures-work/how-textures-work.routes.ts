@@ -10,6 +10,11 @@ import PerlinNoise5 from "./PerlinNoise5.vue";
 import PerlinNoise6 from "./PerlinNoise6.vue";
 import SkyboxAside1 from "./SkyboxAside1.vue";
 import SkyboxAside2 from "./SkyboxAside2.vue";
+import Perlin3dNoise1 from "./Perlin3dNoise1.vue";
+import Perlin3dNoise2 from "./Perlin3dNoise2.vue";
+import Svg1 from "./Svg1.vue";
+import Svg2 from "./Svg2.vue";
+import Svg3 from "./Svg3.vue";
 
 export const howTexturesWorkRoutes = [
   { slide: GeneratingTextures1, notes: [] },
@@ -48,5 +53,24 @@ function seededRandom(x) {
   { slide: SkyboxAside2, notes: [] },
   { slide: SkyboxAside1, notes: [] },
   { slide: PerlinNoise6, notes: [] },
-
+  { slide: Perlin3dNoise1, notes: [] },
+  { slide: Perlin3dNoise2, notes: [
+    `Graphics cards are extremely good at doing math and making pixels a color, which is what this is. Could make it 100x the size
+    and it would run 1000x faster`,
+      `However, graphics cards can only do that. They don't have fonts, they don't have built in ways of drawing shapes, applying filters
+      flipping, mirroring, etc, like you can do in an html canvas`,
+      `This also would still result in quite a lot of code.`,
+      `There is a way to leverage the platform of the browser, which in turn can leverage the graphics card for you`,
+    ] },
+  { slide: PerlinNoise6, notes: [] },
+  { slide: Svg1, notes: [
+    `All svg props:
+    baseFrequency: num (can also be separate x and y)
+    numOctaves: num
+    seed: num
+    stitchTiles:  stitch | noStitch
+    type: fractalNoise | turbulence`,
+    ] },
+  { slide: Svg2, notes: [] },
+  { slide: Svg3, notes: [] },
 ];

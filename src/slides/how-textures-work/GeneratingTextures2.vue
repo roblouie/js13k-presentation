@@ -9,7 +9,7 @@ import {useDebounce} from "../../utils.ts";
 const canvas = ref<HTMLCanvasElement>(null);
 
 const code = ref(`function seededRandom(x) {
-  return Math.sin(x);
+  return Math.random();
 }`);
 
 onMounted(drawLine);
