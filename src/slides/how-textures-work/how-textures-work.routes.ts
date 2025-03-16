@@ -9,6 +9,7 @@ import PerlinNoise4 from "./PerlinNoise4.vue";
 import PerlinNoise5 from "./PerlinNoise5.vue";
 import PerlinNoise6 from "./PerlinNoise6.vue";
 import SkyboxAside1 from "./SkyboxAside1.vue";
+import SkyboxAside2 from "./SkyboxAside2.vue";
 
 export const howTexturesWorkRoutes = [
   { slide: GeneratingTextures1, notes: [] },
@@ -43,6 +44,8 @@ function seededRandom(x) {
     ]
   },
   { slide: PerlinNoise5, notes: [] },
+  { slide: SkyboxAside1, notes: [] },
+  { slide: SkyboxAside2, notes: [] },
   { slide: SkyboxAside1, notes: [] },
   { slide: PerlinNoise6, notes: [] },
 
