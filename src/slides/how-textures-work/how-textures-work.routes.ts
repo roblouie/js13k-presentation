@@ -15,6 +15,7 @@ import Perlin3dNoise2 from "./Perlin3dNoise2.vue";
 import Svg1 from "./Svg1.vue";
 import Svg2 from "./Svg2.vue";
 import Svg3 from "./Svg3.vue";
+import Svg4 from "./Svg4.vue";
 
 export const howTexturesWorkRoutes = [
   { slide: GeneratingTextures1, notes: [] },
@@ -73,4 +74,5 @@ function seededRandom(x) {
     ] },
   { slide: Svg2, notes: [] },
   { slide: Svg3, notes: [] },
+  { slide: Svg4, notes: [] },
 ];
