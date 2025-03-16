@@ -9,8 +9,8 @@ export class Controls {
   keyMap: Map<string, boolean> = new Map();
 
   constructor(targetElement: HTMLElement) {
-    document.addEventListener('keydown', event => this.toggleKey(event, true));
-    document.addEventListener('keyup', event => this.toggleKey(event, false));
+    targetElement.addEventListener('keydown', event => this.toggleKey(event, true));
+    targetElement.addEventListener('keyup', event => this.toggleKey(event, false));
     // document.addEventListener('mousedown', () => this.toggleKey({ code: 'KeyE' }, true));
     // document.addEventListener('mouseup', () => this.toggleKey({ code: 'KeyE' }, false));
     targetElement.addEventListener('mousemove', event => {

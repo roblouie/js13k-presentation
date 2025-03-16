@@ -84,6 +84,7 @@ onUnmounted(() => cancelAnimationFrame(animationFrameId));
 <template>
   <div class="is-flex is-align-items-center" style="height: 100vh; padding: 3em;">
     <canvas
+      tabindex="0"
       width="1024"
       height="1024"
       ref="cameraCanvas"
@@ -96,5 +97,6 @@ onUnmounted(() => cancelAnimationFrame(animationFrameId));
 canvas {
   border: 1px solid gray;
   height: 25em;
+  outline: none;
 }
 </style>
