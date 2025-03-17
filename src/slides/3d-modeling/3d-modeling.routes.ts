@@ -16,6 +16,7 @@ import RenderingGraphics1 from "./RenderingGraphics1.vue";
 import RenderingGraphics2 from "./RenderingGraphics2.vue";
 import VertexShader from "./VertexShader.vue";
 import FragmentShader from "./FragmentShader.vue";
+import MeshExample3 from "../how-small-is-13k/MeshExample3.vue";
 
 export const threeDModelingRoutes = [
   { slide: IntroToThreeD1, notes: [
@@ -49,6 +50,7 @@ export const threeDModelingRoutes = [
   { slide: SceneGraphCode, notes: [] },
   { slide: ProjectionMatrixVisualization, notes: [] },
   { slide: LightingVisualization, notes: [] },
+  { slide: MeshExample3, notes: [] },
   { slide: RenderingGraphics1, notes: [] },
   { slide: RenderingGraphics2, notes: [
     'Touch on GLSL syntax and that we need a vertex shader and fragment shader',
@@ -61,23 +63,20 @@ export const threeDModelingRoutes = [
     ] },
   { slide: Modeler, notes: [
     'Start by changing the width, height, and depth',
+      'Introduce the overall idea of shaping triangles. If a cube is a bunch of triangles and a bunch of triangles can form any shape...a cube can be any shape?',
       'Then switch to wireframe mode and show changing the number of triangles',
       'Swap back to solid view briefly to show the cube is the same, then go back to wireframe',
       `Now modify each vertex to normalize it, reminder on normalization keeps the direction but normalizes the distance to 1`,
-      `
- new MoldableCube(10, 10, 10, 5, 5, 5)
+      `new MoldableCube(10, 10, 10, 5, 5, 5)
   .modifyEachVertex(vertex => {
     vertex.normalize_();
   })
   .done_();`,
-      `
-new MoldableCube(10, 10, 10, 5, 5, 5)
+      `new MoldableCube(10, 10, 10, 5, 5, 5)
   .spherify(5)
-  .done_();
-      `,
+  .done_();`,
       `Now switch back to solid view to show the problem with lighting. The normals are still from the cube shape`,
-      `
-  new MoldableCube(10, 10, 10, 5, 5, 5)
+      `new MoldableCube(10, 10, 10, 5, 5, 5)
   .spherify(5)
   .computeNormals()
   .done_();

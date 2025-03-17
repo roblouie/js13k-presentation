@@ -64,5 +64,12 @@ const activeSlideRoute = computed(() => {
 </template>
 
 <style scoped>
+ul {
+  font-size: 14px;
+  list-style-type: circle;
+}
 
+li {
+  margin-top: 10px
+}
 </style>
