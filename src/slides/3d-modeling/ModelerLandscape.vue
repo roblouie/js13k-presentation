@@ -16,6 +16,9 @@ import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
 import {PlaneGeometry} from "@/engine/plane-geometry.ts";
 import {newNoiseLandscape} from "@/engine/texture-creation/new-new-noise.ts";
+import {NoiseType} from "@/engine/svg-maker/base.ts";
+import {toHeightmap} from "@/engine/svg-maker/converters.ts";
+import {useDebounce} from "@/utils.ts";
 
 const cameraCanvas = ref<HTMLCanvasElement>(null);
 const isWireframe = ref(false);
@@ -31,35 +34,47 @@ gl.canvas.width = 1024;
 gl.canvas.height = 1024;
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-const code = ref(`new MoldableCube(10, 10, 10, 1, 1, 1)`);
+const code = ref(`<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
 
-const runCodeComputed = computed(() => {
-  return new Function('MoldableCube', `
-  return ${code.value}
-`);
-})
+</svg>`);
+
+const [debounce] = useDebounce();
 
 watch(code, () => {
-  try {
-    cube = runCodeComputed.value(MoldableCube);
-    scene = new Scene();
-    item = new Mesh(cube, materials.solidGray);
-    scene.add_(item);
-  } catch (e) {
-    debugger;
-  }
-})
+  debounce(async () => {
+    try {
+      cancelAnimationFrame(animationFrameId);
+      const heightMap = await toHeightmap(code.value, 100);
+      cube = new PlaneGeometry(1024, 1024, 255, 255, heightMap).done_();
+      scene = new Scene();
+      item = new Mesh(cube, materials.solidGray);
+      scene.add_(item);
+      renderViews();
+    } catch (e) {
+      debugger;
+    }
+  }, 300);
+});
+
+let camera;
+
+
+
+let cameraContext;
 
 onMounted(async () => {
-  const camera = new FirstPersonPlayer(
-    new Camera(Math.PI / 6, gl.canvas.width / gl.canvas.height, 1, 400),
+
+  camera = new FirstPersonPlayer(
+    new Camera(Math.PI / 6, gl.canvas.width / gl.canvas.height, 1, 3000),
     new Controls(cameraCanvas.value!)
   );
 
+  camera.speed = 0.8;
 
-  camera.feetCenter = new EnhancedDOMPoint(-33.5, 9.5, -25);
-  camera.cameraRotation.y = -2.2;
-  camera.cameraRotation.x = -0.32;
+  camera.feetCenter = new EnhancedDOMPoint(-766, 461, 798);
+  camera.cameraRotation.y = -0.78;
+  camera.cameraRotation.x = -0.43;
+
 
   document.addEventListener('keydown', key => {
     if (key.code === 'Enter') {
@@ -68,10 +83,13 @@ onMounted(async () => {
     }
   });
 
-  const heightmap = await newNoiseLandscape(256, 6, 0.05, 3, NoiseType.Fractal, 113);
-  const floor = new Mesh(new PlaneGeometry(1024, 1024, 255, 255, heightmap).spreadTextureCoords(), materials.grass);
+  const heightMap = await toHeightmap(`<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
 
-  cube = runCodeComputed.value(MoldableCube);
+
+</svg>`, 100);
+  cube = new PlaneGeometry(1024, 1024, 255, 255, heightMap).done_();
+
+  // cube = runCodeComputed.value(MoldableCube);
 
   item = new Mesh(cube, materials.solidGray);
 
@@ -81,24 +99,23 @@ onMounted(async () => {
 
   scene.add_(item);
 
-  const cameraContext = cameraCanvas.value.getContext('2d')!;
+  cameraContext = cameraCanvas.value.getContext('2d')!;
 
 
   renderViews();
-
-  function renderViews() {
-    camera.controls.queryController();
-    scene.updateWorldMatrix();
-    camera.update([]);
-
-
-    render(camera.camera, scene, isWireframe.value);
-    cameraContext.clearRect(0, 0, cameraCanvas.value.width, cameraCanvas.value.height);
-    cameraContext.drawImage(gl.canvas, 0, 0);
-
-    requestAnimationFrame(renderViews);
-  }
 });
+
+function renderViews() {
+  camera.controls.queryController();
+  scene.updateWorldMatrix();
+  camera.update([]);
+
+  render(camera.camera, scene, isWireframe.value);
+  cameraContext.clearRect(0, 0, cameraCanvas.value.width, cameraCanvas.value.height);
+  cameraContext.drawImage(gl.canvas, 0, 0);
+
+  animationFrameId = requestAnimationFrame(renderViews);
+}
 
 
 onUnmounted(() => cancelAnimationFrame(animationFrameId));
@@ -121,7 +138,7 @@ onUnmounted(() => cancelAnimationFrame(animationFrameId));
       oncontextmenu="return false;"
     ></canvas>
     </div>
-    <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
+    <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.xml, 'xml')" />
   </div>
 </template>
 <style scoped>

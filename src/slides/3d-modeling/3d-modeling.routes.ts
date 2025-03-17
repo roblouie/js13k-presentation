@@ -18,6 +18,7 @@ import VertexShader from "./VertexShader.vue";
 import FragmentShader from "./FragmentShader.vue";
 import MeshExample3 from "../how-small-is-13k/MeshExample3.vue";
 import MeshExample2 from "../how-small-is-13k/MeshExample2.vue";
+import ModelerLandscape from "./ModelerLandscape.vue";
 
 export const threeDModelingRoutes = [
   { slide: IntroToThreeD1, notes: [
@@ -96,6 +97,15 @@ export const threeDModelingRoutes = [
       `Talk about being able to loop through vertices and select them based on filter functions, etc, and the ability to combine cubes into larger shapes`,
     ] },
   { slide: MeshExample3, notes: [] },
+  { slide: ModelerLandscape, notes: [
+    `Start by putting a rectangle on the svg`,
+      `<rect x="80" y="80" width="100" height="100" fill="#333" />`,
+      `Then remind about the noise we generate...`,
+      `<filter height="100%" id="rw" width="100%" x="0" y="0">
+    <feTurbulence baseFrequency="0.1" numOctaves="1" type="fractalNoise"/>
+  </filter>
+  <rect filter="url(#rw)" height="100%" width="100%"/>`
+    ] },
   // TODO: Slide(s) on texture mapping and spread texture coords
   // TODO: At least basic intro slide(s) on shadows
 ];

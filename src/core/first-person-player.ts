@@ -50,16 +50,17 @@ export class FirstPersonPlayer {
     this.camera.updateWorldMatrix();
   }
 
+  speed = 0.24;
+
   protected updateVelocityFromControls() {
-    const speed = 0.24;
 
-    const depthMovementZ = Math.cos(this.cameraRotation.y) * this.controls.inputDirection.y * speed;
-    const depthMovementX = Math.sin(this.cameraRotation.y) * this.controls.inputDirection.y * speed;
-    const depthMovementY = Math.sin(this.cameraRotation.x) * -this.controls.inputDirection.y * speed;
+    const depthMovementZ = Math.cos(this.cameraRotation.y) * this.controls.inputDirection.y * this.speed;
+    const depthMovementX = Math.sin(this.cameraRotation.y) * this.controls.inputDirection.y * this.speed;
+    const depthMovementY = Math.sin(this.cameraRotation.x) * -this.controls.inputDirection.y * this.speed;
 
-    const sidestepZ = Math.cos(this.cameraRotation.y + Math.PI / 2) * this.controls.inputDirection.x * speed;
-    const sidestepX = Math.sin(this.cameraRotation.y + Math.PI / 2) * this.controls.inputDirection.x * speed;
-    const sidestepY = this.controls.inputDirection.z * speed;
+    const sidestepZ = Math.cos(this.cameraRotation.y + Math.PI / 2) * this.controls.inputDirection.x * this.speed;
+    const sidestepX = Math.sin(this.cameraRotation.y + Math.PI / 2) * this.controls.inputDirection.x * this.speed;
+    const sidestepY = this.controls.inputDirection.z * this.speed;
 
     this.velocity.z = depthMovementZ + sidestepZ;
     this.velocity.x = depthMovementX + sidestepX;

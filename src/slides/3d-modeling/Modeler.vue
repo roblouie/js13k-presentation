@@ -91,7 +91,7 @@ onMounted(() => {
     cameraContext.clearRect(0, 0, cameraCanvas.value.width, cameraCanvas.value.height);
     cameraContext.drawImage(gl.canvas, 0, 0);
 
-    requestAnimationFrame(renderViews);
+    animationFrameId = requestAnimationFrame(renderViews);
   }
 });
 

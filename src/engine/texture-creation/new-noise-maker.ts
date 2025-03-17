@@ -1,4 +1,3 @@
-import { VectorLike } from '@/engine/enhanced-dom-point';
 import { hexToWebgl } from '@/engine/helpers';
 
 export enum NoiseType {

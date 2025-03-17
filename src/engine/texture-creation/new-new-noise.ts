@@ -3,7 +3,7 @@ import { hexToWebgl } from '@/engine/helpers';
 import {
   filter, rect, svg, feColorMatrix,
   feComponentTransfer, feFunc,
-  feTurbulence, SvgString, feComposite, feDiffuseLighting, feDistantLight,
+  feTurbulence, feComposite, feDiffuseLighting, feDistantLight,
 } from '@/engine/texture-creation/svg-maker/base';
 import { toImage } from '@/engine/texture-creation/svg-maker/converters';
 import { ellipse, radialGradient, svgStop } from '@/engine/svg-maker/base';
