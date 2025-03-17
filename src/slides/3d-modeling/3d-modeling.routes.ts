@@ -19,6 +19,8 @@ import FragmentShader from "./FragmentShader.vue";
 import MeshExample3 from "../how-small-is-13k/MeshExample3.vue";
 import MeshExample2 from "../how-small-is-13k/MeshExample2.vue";
 import ModelerLandscape from "./ModelerLandscape.vue";
+import ModelerJoining1 from "./ModelerJoining1.vue";
+import ModelerJoining2 from "./ModelerJoining2.vue";
 
 export const threeDModelingRoutes = [
   { slide: IntroToThreeD1, notes: [
@@ -96,7 +98,6 @@ export const threeDModelingRoutes = [
   }).done_();`,
       `Talk about being able to loop through vertices and select them based on filter functions, etc, and the ability to combine cubes into larger shapes`,
     ] },
-  { slide: MeshExample3, notes: [] },
   { slide: ModelerLandscape, notes: [
     `Start by putting a rectangle on the svg`,
       `<rect x="80" y="80" width="100" height="100" fill="#333" />`,
@@ -117,6 +118,28 @@ export const threeDModelingRoutes = [
   <circle cx="128" cy="128" r="50" fill="url('#ring')" />`,
       'Replace the gradient and circle with test',
       `<text x="64" y="128" fill="#f00" font-size="80">Cool</text>`,
+    ] },
+  { slide: ModelerJoining1, notes: [
+    `Talk about mergability of cubes`,
+      `new MoldableCube(10, 10, 10, 1, 1, 1)
+  .merge(
+    new MoldableCube(5, 15, 10, 1, 1, 1)
+    .translate_(7.5, 2.5)
+    .done_()
+  ).done_()`
+    ] },
+  { slide: MeshExample3, notes: [] },
+  { slide: ModelerJoining2, notes: [
+    `new MoldableCube(10, 10, 10, 1, 1, 1)
+.spreadTextureCoords()
+  .merge(
+    new MoldableCube(5, 15, 10, 1, 1, 1)
+    .translate_(7.5, 2.5)
+        .spreadTextureCoords()
+    .done_()
+  ).done_()`,
+      'Show adding params to spreadTextureCoords to change scaling',
+      'By exploiting behavior in texture sampling, I can make textures seamlessly tile across multiple shapes all joined together',
     ] },
   // TODO: Slide(s) on texture mapping and spread texture coords
   // TODO: At least basic intro slide(s) on shadows
