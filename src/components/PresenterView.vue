@@ -41,7 +41,7 @@ function onPrevClick() {
 const router = useRouter();
 
 function launchDisplay() {
-  const routeData = router.resolve(slideRoutes[0]);
+  const routeData = router.resolve(slideRoutes[routePosition.value]);
   window.open(routeData.href, '_blank');
 }
 
@@ -56,7 +56,7 @@ const activeSlideRoute = computed(() => {
 
   <button class="button" @click="launchDisplay">Launch Display</button>
 
-  <div>
+  <div style="height: 90vh; overflow: auto; padding: 0 1em">
     <ul>
       <li v-for="note in activeSlideRoute.meta.notes" :key="note" style="white-space: pre">{{ note }}</li>
     </ul>

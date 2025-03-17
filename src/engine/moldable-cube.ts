@@ -235,7 +235,7 @@ export class MoldableCube {
    * You can optionally pass the shouldCrossPlanes boolean to tell it to use faces from other sides of the cube to
    * compute the normals. Use this for shapes that should appear continuous, like spheres.
    */
-  computeNormals(shouldCrossPlanes = false) {
+  computeNormals(shouldCrossPlanes = true) {
     const updatedNormals = calculateVertexNormals(this.vertices, shouldCrossPlanes ? this.getIndicesWithUniquePositions() : this.indices);
     this.setAttribute_(AttributeLocation.Normals, new Float32Array(updatedNormals.flatMap(point => point.toArray())), 3);
     return this;

@@ -29,7 +29,7 @@ gl.canvas.width = 1024;
 gl.canvas.height = 1024;
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-const code = ref(`new MoldableCube(10, 10, 10, 4, 1, 1, 6)`);
+const code = ref(`new MoldableCube(10, 10, 10, 1, 1, 1)`);
 
 const runCodeComputed = computed(() => {
   return new Function('MoldableCube', `
@@ -43,7 +43,9 @@ watch(code, () => {
     scene = new Scene();
     item = new Mesh(cube, materials.solidGray);
     scene.add_(item);
-  } catch (e) {}
+  } catch (e) {
+    debugger;
+  }
 })
 
 onMounted(() => {
