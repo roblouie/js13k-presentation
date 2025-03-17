@@ -1,12 +1,12 @@
 import { Object3d } from './object-3d';
 import { Material } from './material';
-import { MoldableCubeGeometry, PlaneGeometry } from '@/engine/moldable-cube-geometry';
+import { MoldableCube, PlaneGeometry } from '@/engine/moldable-cube';
 
 export class Mesh extends Object3d {
-  geometry: MoldableCubeGeometry;
+  geometry: MoldableCube;
   material: Material;
 
-  constructor(geometry: PlaneGeometry | MoldableCubeGeometry, material: Material) {
+  constructor(geometry: PlaneGeometry | MoldableCube, material: Material) {
     super();
     this.geometry = geometry;
     this.material = material;

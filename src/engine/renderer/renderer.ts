@@ -71,7 +71,7 @@ export function render(camera: Camera, scene: Scene, isWireframe = false) {
       // @ts-ignore
       gl.uniformMatrix4fv(normalMatrixLocation, true, mesh.color ? mesh.cachedMatrixData : mesh.worldMatrix.inverse().toFloat32Array());
       gl.uniformMatrix4fv(modelviewProjectionLocation, false, modelViewProjectionMatrix.toFloat32Array());
-      gl.drawElements(isWireframe ? gl.LINES : gl.TRIANGLES, mesh.geometry.getIndices()!.length, gl.UNSIGNED_SHORT, 0);
+      gl.drawElements(isWireframe ? gl.LINE_STRIP : gl.TRIANGLES, mesh.geometry.getIndices()!.length, gl.UNSIGNED_SHORT, 0);
     }
   }
 

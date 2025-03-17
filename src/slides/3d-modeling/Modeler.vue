@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useCamera} from "./camera.composable.ts";
 import {computed, onMounted, onUnmounted, ref, watch} from "vue";
-import {MoldableCubeGeometry} from "../../engine/moldable-cube-geometry.ts";
+import {MoldableCube} from "../../engine/moldable-cube.ts";
 import {Scene} from "../../engine/renderer/scene.ts";
 import {Controls} from "@/core/controls.ts";
 import {render} from "@/engine/renderer/renderer.ts";
@@ -16,6 +16,7 @@ import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
 
 const cameraCanvas = ref<HTMLCanvasElement>(null);
+const isWireframe = ref(false);
 
 let scene = new Scene();
 
@@ -28,21 +29,19 @@ gl.canvas.width = 1024;
 gl.canvas.height = 1024;
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-const code = ref(`new MoldableCubeGeometry(10, 10, 10, 4, 1, 1, 6)
-    .spreadTextureCoords()
-    .done_()`);
+const code = ref(`new MoldableCube(10, 10, 10, 4, 1, 1, 6)`);
 
 const runCodeComputed = computed(() => {
-  return new Function('MoldableCubeGeometry', `
+  return new Function('MoldableCube', `
   return ${code.value}
 `);
 })
 
 watch(code, () => {
   try {
-    cube = runCodeComputed.value(MoldableCubeGeometry);
+    cube = runCodeComputed.value(MoldableCube);
     scene = new Scene();
-    item = new Mesh(cube, materials.silver);
+    item = new Mesh(cube, materials.solidGray);
     scene.add_(item);
   } catch (e) {}
 })
@@ -64,9 +63,9 @@ onMounted(() => {
     }
   })
 
-  cube = runCodeComputed.value(MoldableCubeGeometry);
+  cube = runCodeComputed.value(MoldableCube);
 
-  item = new Mesh(cube, materials.silver);
+  item = new Mesh(cube, materials.solidGray);
 
   cameraCanvas.value.addEventListener('click', () => {
     cameraCanvas.value.requestPointerLock();
@@ -85,7 +84,7 @@ onMounted(() => {
     camera.update([]);
 
 
-    render(camera.camera, scene, true);
+    render(camera.camera, scene, isWireframe.value);
     cameraContext.clearRect(0, 0, cameraCanvas.value.width, cameraCanvas.value.height);
     cameraContext.drawImage(gl.canvas, 0, 0);
 
@@ -98,7 +97,13 @@ onUnmounted(() => cancelAnimationFrame(animationFrameId));
 </script>
 
 <template>
-  <div class="is-flex is-align-items-center" style="height: 100vh; padding: 3em;">
+
+  <div class="is-flex is-align-items-center" style="height: 100vh; padding: 3em 2em 3em 2em">
+    <div>
+    <label class="checkbox">
+      <input type="checkbox" v-model="isWireframe" />
+      Wireframe
+    </label>
     <canvas
       tabindex="0"
       width="1024"
@@ -107,7 +112,7 @@ onUnmounted(() => cancelAnimationFrame(animationFrameId));
       @mousemove="onCameraMouseMove"
       oncontextmenu="return false;"
     ></canvas>
-
+    </div>
     <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
   </div>
 </template>
@@ -121,5 +126,6 @@ canvas {
 .my-editor {
   height: 25em;
   margin-left: 2em;
+  margin-top: 1em;
 }
 </style>

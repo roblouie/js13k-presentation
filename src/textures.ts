@@ -30,6 +30,7 @@ export async function initTextures() {
   materials.lighterWoodTest = new Material({ texture: textureLoader.load_(await lighterWoodTest())});
   materials.ceilingTiles = new Material({ texture: textureLoader.load_(await ceilingTiles())});
   materials.elevatorPanel = new Material({ texture: textureLoader.load_(await elevatorPanel())});
+  materials.solidGray = new Material({ texture: textureLoader.load_(await solidGray())})
 
   textureLoader.bindTextures();
 }
@@ -54,6 +55,12 @@ async function elevatorPanel() {
     }
 
   return metals(content);
+}
+
+function solidGray() {
+  return toImage(`<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+    <rect width="100%" height="100%" fill="#ccc"/>
+</svg>`)
 }
 
 function potentialPlasterWall() {

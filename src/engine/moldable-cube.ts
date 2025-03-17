@@ -13,7 +13,7 @@ export function getTextureForSide(uDivisions: number, vDivisions: number, textur
 }
 
 
-export class MoldableCubeGeometry {
+export class MoldableCube {
   vertices: EnhancedDOMPoint[] = [];
   verticesToActOn: EnhancedDOMPoint[] = [];
 
@@ -169,7 +169,7 @@ export class MoldableCubeGeometry {
     return this;
   }
 
-  merge(otherMoldable: MoldableCubeGeometry) {
+  merge(otherMoldable: MoldableCube) {
     const updatedOtherIndices = otherMoldable.getIndices()!.map(index => index + this.vertices.length);
     this.indices = new Uint16Array([...this.indices, ...updatedOtherIndices]);
 
@@ -311,7 +311,7 @@ export class MoldableCubeGeometry {
 }
 
 
-export class PlaneGeometry extends MoldableCubeGeometry {
+export class PlaneGeometry extends MoldableCube {
 
   constructor(width_ = 1, depth = 1, subdivisionsWidth = 1, subdivisionsDepth = 1, heightmap?: number[]) {
     super(width_, 1, depth, subdivisionsWidth, 0, subdivisionsDepth, 1);
