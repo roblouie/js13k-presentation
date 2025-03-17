@@ -34,7 +34,7 @@ gl.canvas.width = 1024;
 gl.canvas.height = 1024;
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-const code = ref(`<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+const code = ref(`<svg width="256" height="256">
 
 </svg>`);
 
@@ -44,7 +44,8 @@ watch(code, () => {
   debounce(async () => {
     try {
       cancelAnimationFrame(animationFrameId);
-      const heightMap = await toHeightmap(code.value, 100);
+      const headerAdded = code.value.replace('<svg width="256" height="256">', '<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">')
+      const heightMap = await toHeightmap(headerAdded, 100);
       cube = new PlaneGeometry(1024, 1024, 255, 255, heightMap).done_();
       scene = new Scene();
       item = new Mesh(cube, materials.solidGray);
@@ -152,5 +153,6 @@ canvas {
   height: 25em;
   margin-left: 2em;
   margin-top: 1em;
+  font-size: 0.8em;
 }
 </style>

@@ -104,7 +104,19 @@ export const threeDModelingRoutes = [
       `<filter height="100%" id="rw" width="100%" x="0" y="0">
     <feTurbulence baseFrequency="0.1" numOctaves="1" type="fractalNoise"/>
   </filter>
-  <rect filter="url(#rw)" height="100%" width="100%"/>`
+  <rect filter="url(#rw)" height="100%" width="100%"/>`,
+      `Add the radial gradient below the filter but above the rect`,
+      `<defs>
+    <radialGradient id="ring">
+      <stop offset="10%" stop-color="#000" />
+      <stop offset="80%" stop-color="#000" />
+      <stop offset="95%" stop-color="#f00" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="128" cy="128" r="50" fill="url('#ring')" />`,
+      'Replace the gradient and circle with test',
+      `<text x="64" y="128" fill="#f00" font-size="80">Cool</text>`,
     ] },
   // TODO: Slide(s) on texture mapping and spread texture coords
   // TODO: At least basic intro slide(s) on shadows
