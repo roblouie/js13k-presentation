@@ -17,6 +17,7 @@ import RenderingGraphics2 from "./RenderingGraphics2.vue";
 import VertexShader from "./VertexShader.vue";
 import FragmentShader from "./FragmentShader.vue";
 import MeshExample3 from "../how-small-is-13k/MeshExample3.vue";
+import MeshExample2 from "../how-small-is-13k/MeshExample2.vue";
 
 export const threeDModelingRoutes = [
   { slide: IntroToThreeD1, notes: [
@@ -50,7 +51,6 @@ export const threeDModelingRoutes = [
   { slide: SceneGraphCode, notes: [] },
   { slide: ProjectionMatrixVisualization, notes: [] },
   { slide: LightingVisualization, notes: [] },
-  { slide: MeshExample3, notes: [] },
   { slide: RenderingGraphics1, notes: [] },
   { slide: RenderingGraphics2, notes: [
     'Touch on GLSL syntax and that we need a vertex shader and fragment shader',
@@ -60,6 +60,9 @@ export const threeDModelingRoutes = [
     ] },
   { slide: FragmentShader, notes: [
       'This is a slightly simplified version of the real shader'
+    ] },
+  { slide: MeshExample2, notes: [
+    `Reminder on vertex normals and how they point in the direction a vertex "points"`
     ] },
   { slide: Modeler, notes: [
     'Start by changing the width, height, and depth',
@@ -76,12 +79,23 @@ export const threeDModelingRoutes = [
   .spherify(5)
   .done_();`,
       `Now switch back to solid view to show the problem with lighting. The normals are still from the cube shape`,
+      `Talk about winding order and that combined with 3 points to define a plane mean we can determine face direction`,
+      `If we average the face direction of all faces shared by a vertex, we can calculate it's normal`,
       `new MoldableCube(10, 10, 10, 5, 5, 5)
   .spherify(5)
   .computeNormals()
   .done_();
-      `
+      `,
+      `new MoldableCube(10, 10, 10, 5, 5, 5)
+  .modifyEachVertex(vertex => {
+    const originalAxis = vertex.y;
+    vertex.y = 0;
+    vertex.normalize_().scale_(5);
+    vertex.y = originalAxis;
+  }).done_();`,
+      `Talk about being able to loop through vertices and select them based on filter functions, etc, and the ability to combine cubes into larger shapes`,
     ] },
+  { slide: MeshExample3, notes: [] },
   // TODO: Slide(s) on texture mapping and spread texture coords
   // TODO: At least basic intro slide(s) on shadows
 ];

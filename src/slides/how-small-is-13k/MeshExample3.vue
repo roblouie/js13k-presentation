@@ -7,7 +7,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
   <BaseSlideTemplate>
 
     <template v-slot:header>
-      How small is 13kb?
+      Texture Mapping
     </template>
 
     <template v-slot:default>

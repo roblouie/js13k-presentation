@@ -14,6 +14,8 @@ import {FirstPersonPlayer} from "@/core/first-person-player.ts";
 import {Camera} from "@/engine/renderer/camera.ts";
 import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
+import {PlaneGeometry} from "@/engine/plane-geometry.ts";
+import {newNoiseLandscape} from "@/engine/texture-creation/new-new-noise.ts";
 
 const cameraCanvas = ref<HTMLCanvasElement>(null);
 const isWireframe = ref(false);
@@ -48,7 +50,7 @@ watch(code, () => {
   }
 })
 
-onMounted(() => {
+onMounted(async () => {
   const camera = new FirstPersonPlayer(
     new Camera(Math.PI / 6, gl.canvas.width / gl.canvas.height, 1, 400),
     new Controls(cameraCanvas.value!)
@@ -64,7 +66,10 @@ onMounted(() => {
       console.log(camera.cameraRotation);
       console.log(camera.feetCenter);
     }
-  })
+  });
+
+  const heightmap = await newNoiseLandscape(256, 6, 0.05, 3, NoiseType.Fractal, 113);
+  const floor = new Mesh(new PlaneGeometry(1024, 1024, 255, 255, heightmap).spreadTextureCoords(), materials.grass);
 
   cube = runCodeComputed.value(MoldableCube);
 

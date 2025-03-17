@@ -1,0 +1,16 @@
+import {MoldableCube} from "./moldable-cube.ts";
+
+export class PlaneGeometry extends MoldableCube {
+
+  constructor(width_ = 1, depth = 1, subdivisionsWidth = 1, subdivisionsDepth = 1, heightmap?: number[]) {
+    super(width_, 1, depth, subdivisionsWidth, 0, subdivisionsDepth, 1);
+
+    if (heightmap) {
+      this
+        .modifyEachVertex((vertex, index) => {
+          vertex.y = heightmap[index];
+        })
+        .computeNormals();
+    }
+  }
+}
