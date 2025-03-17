@@ -1,12 +1,10 @@
-export interface VectorLike {
-  x: number;
-  y: number;
-  z: number;
-  w?: number;
-}
+<script setup lang="ts">
+import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
+import {highlight, languages} from "prismjs";
+import {PrismEditor} from "vue-prism-editor";
 
-export class EnhancedDOMPoint extends DOMPoint {
-  add_(otherVector: VectorLike) {
+const code = `export class EnhancedDOMPoint extends DOMPoint {
+  add(otherVector: VectorLike) {
     this.addVectors(this, otherVector);
     return this;
   }
@@ -26,15 +24,15 @@ export class EnhancedDOMPoint extends DOMPoint {
     }
     this.x = x ?? this.x;
     this.y = y ?? this.y;
-    this.z = z != null ? z : this.z;
+    this.z = z ?? this.z;
     return this;
   }
 
-  clone_() {
+  clone() {
     return new EnhancedDOMPoint(this.x, this.y, this.z, this.w);
   }
 
-  scale_(scaleBy: number) {
+  scale(scaleBy: number) {
     this.x *= scaleBy;
     this.y *= scaleBy;
     this.z *= scaleBy;
@@ -42,7 +40,7 @@ export class EnhancedDOMPoint extends DOMPoint {
   }
 
   subtract(otherVector: VectorLike) {
-    this.subtractVectors(this, otherVector);
+   this.subtractVectors(this, otherVector);
     return this;
   }
 
@@ -63,11 +61,11 @@ export class EnhancedDOMPoint extends DOMPoint {
     return this;
   }
 
-  dot(otherVector: EnhancedDOMPoint): number {
+  dot(otherVector: VectorLike): number {
     return this.x * otherVector.x + this.y * otherVector.y + this.z * otherVector.z;
   }
 
-  toArray(is2d?: boolean) {
+  toArray(): [x: number, y: number, z: number] {
     return [this.x, this.y, this.z];
   }
 
@@ -75,10 +73,10 @@ export class EnhancedDOMPoint extends DOMPoint {
     return Math.hypot(...this.toArray());
   }
 
-  normalize_() {
+  normalize() {
     const magnitude = this.magnitude;
     if (magnitude === 0) {
-      return new EnhancedDOMPoint();
+      return this.set(0, 0, 0);
     }
     this.x /= magnitude;
     this.y /= magnitude;
@@ -86,21 +84,37 @@ export class EnhancedDOMPoint extends DOMPoint {
     return this;
   }
 
-  lerp(otherVector: EnhancedDOMPoint, alpha: number) {
+  lerp(otherVector: VectorLike, alpha: number) {
     this.x += ( otherVector.x - this.x ) * alpha;
     this.y += ( otherVector.y - this.y ) * alpha;
     this.z += ( otherVector.z - this.z ) * alpha;
     return this;
   }
 
-  modifyComponents(callback: (component: number) => number) {
-    this.x = callback(this.x);
-    this.y = callback(this.y);
-    this.z = callback(this.z);
-    return this;
-  }
-
-  isEqualTo(otherVector: EnhancedDOMPoint): boolean {
+  isEqualTo(otherVector: VectorLike): boolean {
     return this.x === otherVector.x && this.y === otherVector.y && this.z === otherVector.z;
   }
+}`;
+</script>
+
+<template>
+  <BaseSlideTemplate>
+
+    <template v-slot:header>
+      DOMPoint
+    </template>
+
+    <template v-slot:default>
+
+      <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
+
+    </template>
+  </BaseSlideTemplate>
+</template>
+
+<style scoped>
+.my-editor {
+  font-size: 0.8em;
+  height: 30em;
 }
+</style>
