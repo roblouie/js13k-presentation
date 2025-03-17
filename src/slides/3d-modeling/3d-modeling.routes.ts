@@ -29,12 +29,20 @@ export const threeDModelingRoutes = [
   { slide: IntroToThreeD5, notes: [] },
   { slide: IntroToThreeD6, notes: [] },
   { slide: IntroToThreeD7, notes: [] },
-  { slide: IntroToThreeD8, notes: [] },
+  { slide: IntroToThreeD8, notes: [
+
+    'Next slide: DOMPoint and DOMMatrix built into browser'
+    ] },
   { slide: EnhancedDomPointCode, notes: [
     `The browser has DOMPoint and DOMMatrix built in`,
       `This is great for free matrix multiplication, but not much else`,
       `EnhancedDOMPoint extends DOMPoint so it can still be used with DOMMatrix, but has more features`,
     ] },
   { slide: SceneGraphCode, notes: [] },
-  { slide: Modeler, notes: [] },
+  // TODO: Slide on projection matrix
+  // TODO: Slide on lighting
+  // TODO: Slide on how with this we can render 3d...sort of, should probably use graphics card
+  { slide: Modeler, notes: [] }, // TODO: Write notes for the different moldable cube functions to show off
+  // TODO: Slide(s) on texture mapping and spread texture coords
+  // TODO: At least basic intro slide(s) on shadows
 ];

@@ -106,7 +106,7 @@ const code = `export class EnhancedDOMPoint extends DOMPoint {
 
     <template v-slot:default>
 
-      <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
+      <PrismEditor class="my-editor" v-model="code" :highlight="code => highlight(code, languages.ts, 'ts')" />
 
     </template>
   </BaseSlideTemplate>
