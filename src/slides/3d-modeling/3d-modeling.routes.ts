@@ -21,6 +21,11 @@ import MeshExample2 from "../how-small-is-13k/MeshExample2.vue";
 import ModelerLandscape from "./ModelerLandscape.vue";
 import ModelerJoining1 from "./ModelerJoining1.vue";
 import ModelerJoining2 from "./ModelerJoining2.vue";
+import Shadows1 from "./Shadows1.vue";
+import Shadows4 from "./Shadows4.vue";
+import Shadows2 from "./Shadows2.vue";
+import Shadows3 from "./Shadows3.vue";
+import GraphicsSummary from "./GraphicsSummary.vue";
 
 export const threeDModelingRoutes = [
   { slide: IntroToThreeD1, notes: [
@@ -130,6 +135,7 @@ export const threeDModelingRoutes = [
     ] },
   { slide: MeshExample3, notes: [] },
   { slide: ModelerJoining2, notes: [
+    'Show how the texture coordinates work on the rendered shapes, causing the stretching',
     `new MoldableCube(10, 10, 10, 1, 1, 1)
 .spreadTextureCoords()
   .merge(
@@ -141,6 +147,26 @@ export const threeDModelingRoutes = [
       'Show adding params to spreadTextureCoords to change scaling',
       'By exploiting behavior in texture sampling, I can make textures seamlessly tile across multiple shapes all joined together',
     ] },
-  // TODO: Slide(s) on texture mapping and spread texture coords
-  // TODO: At least basic intro slide(s) on shadows
+  { slide: Shadows1, notes: [
+    `Directional shadows are in general not too hard to do. Render the scene from the point of view of the light first, but rather than rendering
+    colors, render the depths only`,
+      `Then render the scene from the point of view of the camera, but for each pixel, check it's depth against the same pixel from
+       the point of view of the light. If the rendered pixel has more depth than what is in the depth map, it is behind an object and is shadowed.`
+    ] },
+  { slide: Shadows2, notes: [
+    'Here we see a visual representation of a depth map from the point of view of a light'
+    ] },
+  { slide: Shadows3, notes: [
+    'Here is the normally rendered scene on the left, depth map on the right',
+      'Comparing pixels, the pixel at the arrow will have a greater depth than the value returned from the same spot as the depth map, so it is behind an object and in shadow.'
+    ] },
+  { slide: Shadows4, notes: [
+    `This is all fine and good for directional lights like the sun, or even spotlights, as they only have a single direction`,
+      `What about point lights, like a lamp in a room, which shines light out in all directions?`,
+      `Remember the skymap? Anywhere you look at that skymap, you will hit a pixel`,
+      `If we render the scene from the point of view of the light, 6 times each with a 90 degree viewpoint, rotating the "camera" exactly each time, we can render depths onto a cubemap`,
+      `Now if we also sample these when rendering our scene, we can cast shadows in all directions`,
+    ]
+  },
+  { slide: GraphicsSummary, notes: [] },
 ];
