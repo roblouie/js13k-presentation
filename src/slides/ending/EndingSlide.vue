@@ -67,7 +67,7 @@ onUnmounted(() => {
   <transition name="fade">
   <div v-if="cycler === 3" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-evenly" style="height: 100vh; position: absolute; width: 100vw;">
     <div style="font-size: 3em;">Andrew Adamson YouTube</div>
-    <img src="./charon-jr.png" />
+    <img src="./webgl.png" />
     <div class="has-text-centered">
       <div>Excellent resource for learning WebGL 2</div>
     </div>
