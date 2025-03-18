@@ -5,7 +5,7 @@ import {PrismEditor} from "vue-prism-editor";
 
 const code = `// In the player class
 
-const listener = new AudioListener()
+const listener = new AudioListener();
 
 listener.positionX.value = position.x;
 listener.positionY.value = position.y;
@@ -25,7 +25,6 @@ new PannerNode(audioContext, {
 });
 
 pannerNode.positionX.value = position.x;
-
 pannerNode.positionZ.value = position.z;`;
 </script>
 
