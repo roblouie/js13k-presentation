@@ -17,7 +17,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
           and your game must be 13kb or less in size.
         </li>
         <li>
-          You must submit a single zip file with your entire game. When unzipped it must run
+          You must submit a single 13kb zip file with your entire game. When unzipped it must run
           without an internet connection (no sneakily loading data behind the scenes).
         </li>
         <li>
@@ -33,5 +33,9 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 <style scoped>
 ul {
   font-size: 1.5em;
+}
+
+li {
+  margin-bottom: 1em;
 }
 </style>

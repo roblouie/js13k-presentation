@@ -7,17 +7,17 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
   <BaseSlideTemplate>
 
     <template v-slot:header>
-      Why a 13kb game?
+      Principals
     </template>
 
     <template v-slot:default>
       <ul>
-        <li>That's the size they picked</li>
+        <li>Leverage the power of the browser. To push beyond perceived limitations, you have to master your platform. In this case, the platform is the browser.</li>
         <li>
-          Automatically limits the scope of your game, forcing you to focus on core ideas
+          Even if you do this, there will always be limitations, especially in a 13kb game. Push until you find an acceptable set of limitations and then work within them.
         </li>
         <li>
-          Limitations bring innovation. Within the limited scope, what can you come up with...?
+          Limitations breed creativity. Use creative problem solving to find unlikely solutions, or to exploit a "limitation", turning it into a "feature".
         </li>
       </ul>
     </template>
@@ -27,7 +27,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 
 <style scoped>
 ul {
-  font-size: 1.7em;
+  font-size: 1.5em;
   padding: 0 2em;
 }
 
