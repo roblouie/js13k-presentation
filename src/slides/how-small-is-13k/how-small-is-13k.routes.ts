@@ -10,8 +10,10 @@ import AudioExample1Answer from "./AudioExample1Answer.vue";
 import AudioExample2 from "./AudioExample2.vue";
 import AudioExample2Answer from "./AudioExample2Answer.vue";
 import Threejs from "./Threejs.vue";
+import HowSmallIntro from "./HowSmallIntro.vue";
 
 export const howSmallIs13kRoutes = [
+  { slide: HowSmallIntro, notes: [] },
   { slide: ImageExample, notes: [] },
   { slide: ImageExampleAnswer, notes: [] },
   { slide: MeshExample1, notes: [] },
@@ -26,5 +28,8 @@ export const howSmallIs13kRoutes = [
   { slide: AudioExample1Answer, notes: [] },
   { slide: AudioExample2, notes: [] },
   { slide: AudioExample2Answer, notes: [] },
-  { slide: Threejs, notes: ['React is about 40kb zipped', 'In these figures, both react and three have been minified before zipping'] },
+  { slide: Threejs, notes: [
+    'React is about 40kb zipped', 'In these figures, both react and three have been minified before zipping',
+      'Next slide is game clips, introduce that'
+    ] },
 ];

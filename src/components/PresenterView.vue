@@ -65,7 +65,7 @@ const activeSlideRoute = computed(() => {
 
 <style scoped>
 ul {
-  font-size: 14px;
+  font-size: 24px;
   list-style-type: circle;
 }
 

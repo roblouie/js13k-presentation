@@ -15,7 +15,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
         <div class="subtext"></div>
         <img src="./ps1.png" />
 
-        <div class="subtext mt-6 has-text-centered">About 400 vertices is as big as the entire game is allowed to be</div>
+        <div class="subtext mt-4 has-text-centered">About 400 vertices is as big as the entire game is allowed to be</div>
       </div>
     </template>
 
@@ -24,7 +24,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 
 <style scoped>
 img {
-  flex-grow: 1;
+  height: 20em;
 }
 
 .subtext {

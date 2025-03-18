@@ -65,8 +65,8 @@ async function getQuestion() {
 
     <template v-slot:default>
       <div class="full-height is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-        <canvas ref="canvas" width="1280" height="560" class="mb-6" />
-        <audio autoplay="true" controls ref="audioPlayer" src="/elevator-door-and-ding.mp3"></audio>
+        <canvas ref="canvas" width="1280" height="560" class="mb-4" />
+        <audio autoplay="true" class="mb-3" controls ref="audioPlayer" src="/elevator-door-and-ding.mp3"></audio>
       </div>
 
       Six second clip of elevator
@@ -76,5 +76,7 @@ async function getQuestion() {
 </template>
 
 <style scoped>
-
+canvas {
+  height: 18em;
+}
 </style>

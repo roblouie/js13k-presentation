@@ -12,22 +12,27 @@ import {demoVideoRoutes} from "./demo-video/demo-video.routes.ts";
 import {howTexturesWorkRoutes} from "./how-textures-work/how-textures-work.routes.ts";
 import {threeDModelingRoutes} from "./3d-modeling/3d-modeling.routes.ts";
 import GameDevOverview from "./3/GameDevOverview.vue";
+import {audioRoutes} from "./audio/audio.routes.ts";
 
 const slideRoutesInt = generateRoutesFromList([
   { slide: Slide0, notes: []},
   { slide: Slide1, notes: []},
   { slide: GameDevOverview, notes: []},
-  { slide: Slide2, notes: ['Touch on the passion and coolness behind creative problem solving and finding creative solutions to do things that seem impossible']},
+  { slide: Slide2, notes: [
+    'Touch on the passion and coolness behind creative problem solving and finding creative solutions to do things that seem impossible',
+      'Touch on remembering as a kid that some games did more and it seemed cool'
+    ]},
   { slide: Slide3, notes: []},
   { slide: Slide4, notes: []},
   { slide: Slide5, notes: []},
-  { slide: Slide6, notes: ['Next slide talks about how small 13kb is. Talk about floppy discs?']},
+  { slide: Slide6, notes: []},
 ]);
 
 export const slideRoutes = [
   ...slideRoutesInt,
   ...generateRoutesFromList(howSmallIs13kRoutes),
   ...generateRoutesFromList(demoVideoRoutes),
+  ...generateRoutesFromList(audioRoutes),
   ...generateRoutesFromList(howTexturesWorkRoutes),
   ...generateRoutesFromList(threeDModelingRoutes),
 ]
