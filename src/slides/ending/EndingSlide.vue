@@ -23,7 +23,10 @@ onUnmounted(() => {
   <transition name="fade">
 <div v-if="cycler === 0"  class="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-evenly" style="height: 100vh; position: absolute; width: 100vw;">
   <div style="font-size: 3em;">13th Floor</div>
-  <img src="./13th-floor.png" />
+  <div class="is-flex">
+    <img src="./13th-floor-img.png" class="mr-5" />
+    <img src="./13th-floor.png" />
+  </div>
   <div class="has-text-centered">
   <div>2024</div>
   <div>1st Place</div>
@@ -34,7 +37,11 @@ onUnmounted(() => {
   <transition name="fade">
   <div v-if="cycler === 1" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-evenly" style="height: 100vh; position: absolute; width: 100vw;">
     <div style="font-size: 3em;">Upyri</div>
-    <img src="./upyri.png" />
+    <div class="is-flex">
+      <img src="./upyri-img.jpg" class="mr-5" />
+      <img src="./upyri.png" />
+    </div>
+
     <div class="has-text-centered">
       <div>2023</div>
       <div>5th Place</div>
@@ -44,8 +51,11 @@ onUnmounted(() => {
 
   <transition name="fade">
   <div v-if="cycler === 2" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-evenly" style="height: 100vh; position: absolute; width: 100vw;">
-    <div style="font-size: 3em;">13th Floor</div>
-    <img src="./charon-jr.png" />
+    <div style="font-size: 3em;">Charon Jr.</div>
+    <div class="is-flex">
+      <img src="./charon-img.jpg" class="mr-5" />
+      <img src="./charon-jr.png" />
+    </div>
     <div class="has-text-centered">
       <div>2022</div>
       <div>6th Place</div>
