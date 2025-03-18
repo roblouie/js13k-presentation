@@ -14,6 +14,7 @@ import {threeDModelingRoutes} from "./3d-modeling/3d-modeling.routes.ts";
 import GameDevOverview from "./3/GameDevOverview.vue";
 import {audioRoutes} from "./audio/audio.routes.ts";
 import {buildProcessRoutes} from "./build-process/build-process.routes.ts";
+import EndingSlide from "./ending/EndingSlide.vue";
 
 const slideRoutesInt = generateRoutesFromList([
   { slide: Slide0, notes: []},
@@ -37,4 +38,9 @@ export const slideRoutes = [
   ...generateRoutesFromList(howTexturesWorkRoutes),
   ...generateRoutesFromList(threeDModelingRoutes),
   ...generateRoutesFromList(buildProcessRoutes),
+  {
+    path: 'ending',
+    name: 'Ending',
+    component: EndingSlide,
+  }
 ];

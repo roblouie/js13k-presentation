@@ -4,22 +4,10 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 </script>
 
 <template>
-  <BaseSlideTemplate>
-
-    <template v-slot:header>
-      Build Process
-    </template>
-
-    <template v-slot:default>
-      <div>
-        <!--      <div class="is-flex is-flex-direction-column is-justify-content-space-evenly" style="height:100%">-->
-        <p class="mb-6">Matrices can also translate, rotate, and skew vectors</p>
-        <p class="mb-6">Multiplying one matrix by another will actually transform that matrix's transformations</p>
-        <p>This means that by multiplying matrices, you can position things relative to a parent position.</p>
-      </div>
-      <!--      </div>-->
-    </template>
-  </BaseSlideTemplate>
+  <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" style="height: 100vh;">
+    <h1 style="font-size: 14em;" class="has-text-weight-bold mb-0 has-text-warning">BUILD</h1>
+    <div style="font-size: 8em; margin-top: -0.5em;" class="has-text-warning has-text-weight-bold">PROCESS</div>
+  </div>
 </template>
 
 <style scoped>
