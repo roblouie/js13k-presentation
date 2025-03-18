@@ -16,8 +16,10 @@ import Svg1 from "./Svg1.vue";
 import Svg2 from "./Svg2.vue";
 import Svg3 from "./Svg3.vue";
 import Svg4 from "./Svg4.vue";
+import TextureIntro from "./TextureIntro.vue";
 
 export const howTexturesWorkRoutes = [
+  { slide: TextureIntro, notes: [] },
   { slide: GeneratingTextures1, notes: [] },
   { slide: GeneratingTextures2, notes: [
     'Maybe start by showing math.random instead or in addition to sin',
@@ -49,11 +51,11 @@ function seededRandom(x) {
     to visualize`
     ]
   },
-  { slide: PerlinNoise5, notes: [] },
-  { slide: SkyboxAside1, notes: [] },
-  { slide: SkyboxAside2, notes: [] },
-  { slide: SkyboxAside1, notes: [] },
-  { slide: PerlinNoise6, notes: [] },
+  { slide: PerlinNoise5, notes: ['When combined with different colors and some small tweaks, this does work'] },
+  { slide: SkyboxAside1, notes: ['Talk about tiling textures. Click the upper left box to show the borders'] },
+  { slide: SkyboxAside2, notes: ['Talk about how the skybox wraps around so the left and right edges of top meet the top edges of back and right'] },
+  { slide: SkyboxAside1, notes: ['Now click upper middle box to rotate it showing that tiling doesnt work here'] },
+  { slide: PerlinNoise6, notes: ['Talk about generating 3d noise and slicing off edges.', 'Analogy of hollowing out wood and getting consistent wood grain'] },
   { slide: Perlin3dNoise1, notes: [] },
   { slide: Perlin3dNoise2, notes: [
     `Graphics cards are extremely good at doing math and making pixels a color, which is what this is. Could make it 100x the size
@@ -63,7 +65,7 @@ function seededRandom(x) {
       `This also would still result in quite a lot of code.`,
       `There is a way to leverage the platform of the browser, which in turn can leverage the graphics card for you`,
     ] },
-  { slide: PerlinNoise6, notes: [] },
+  { slide: PerlinNoise6, notes: ['A reminder of the code needed to generate the noise.'] },
   { slide: Svg1, notes: [
     `All svg props:
     baseFrequency: num (can also be separate x and y)
@@ -73,6 +75,6 @@ function seededRandom(x) {
     type: fractalNoise | turbulence`,
     ] },
   { slide: Svg2, notes: [] },
-  { slide: Svg3, notes: [] },
-  { slide: Svg4, notes: [] },
+  { slide: Svg3, notes: ['Talk about dealing with skybox seams by first just making a continuous left-back-right-front image, then fading out the far left and right'] },
+  { slide: Svg4, notes: ['Talk about the radial gradiant to fade clouds, and the radial gradient to brighten them around the moon'] },
 ];

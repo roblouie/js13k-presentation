@@ -13,6 +13,7 @@ import {howTexturesWorkRoutes} from "./how-textures-work/how-textures-work.route
 import {threeDModelingRoutes} from "./3d-modeling/3d-modeling.routes.ts";
 import GameDevOverview from "./3/GameDevOverview.vue";
 import {audioRoutes} from "./audio/audio.routes.ts";
+import {buildProcessRoutes} from "./build-process/build-process.routes.ts";
 
 const slideRoutesInt = generateRoutesFromList([
   { slide: Slide0, notes: []},
@@ -35,76 +36,5 @@ export const slideRoutes = [
   ...generateRoutesFromList(audioRoutes),
   ...generateRoutesFromList(howTexturesWorkRoutes),
   ...generateRoutesFromList(threeDModelingRoutes),
-]
-
-// export const slideRoutes: Array<RouteRecordRaw> = [
-//   {
-//     component: Slide0,
-//     meta: {
-//       notes: [
-//         'Touch on point 1',
-//       ]
-//     }
-//   },
-//   {
-//     path: '2',
-//     name: '2',
-//     component: Slide1,
-//     meta: {
-//       notes: [
-//         'Touch on point 2'
-//       ]
-//     }
-//   },
-//   {
-//     path: '3',
-//     name: '3',
-//     component: Slide2,
-//     meta: {
-//       notes: [
-//         'Touch on point 2'
-//       ]
-//     }
-//   },
-//   {
-//     path: '4',
-//     name: '4',
-//     component: Slide3,
-//     meta: {
-//       notes: [
-//         'Touch on point 2'
-//       ]
-//     }
-//   },
-//   {
-//     path: '5',
-//     name: '5',
-//     component: Slide4,
-//     meta: {
-//       notes: [
-//         'Touch on point 2'
-//       ]
-//     }
-//   },
-//   {
-//     path: '6',
-//     name: '6',
-//     component: Slide5,
-//     meta: {
-//       notes: [
-//         'Touch on point 2'
-//       ]
-//     }
-//   },
-//   {
-//     path: '7',
-//     name: '7',
-//     component: Slide6,
-//     meta: {
-//       notes: [
-//         'Touch on point 2'
-//       ]
-//     }
-//   },
-//   ...howSmallIs13kRoutes,
-// ];
+  ...generateRoutesFromList(buildProcessRoutes),
+];

@@ -22,6 +22,7 @@ watch(code, () => {
 
 function drawLine() {
   const context = canvas.value!.getContext('2d')!;
+  console.log(context);
 
   const { width, height } = context.canvas;
 
@@ -48,7 +49,7 @@ function drawLine() {
     let seededRandom;
     eval(`seededRandom = ${code.value}`);
 
-    context.moveTo(seededRandom(0), height / 2);
+    context.moveTo(0, height / 2);
 
     for (let x = 0; x < width; x++) {
       const virtualX = x / 79.5;

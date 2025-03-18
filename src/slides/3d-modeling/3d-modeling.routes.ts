@@ -26,8 +26,10 @@ import Shadows4 from "./Shadows4.vue";
 import Shadows2 from "./Shadows2.vue";
 import Shadows3 from "./Shadows3.vue";
 import GraphicsSummary from "./GraphicsSummary.vue";
+import ModelingIntro from "./ModelingIntro.vue";
 
 export const threeDModelingRoutes = [
+  { slide: ModelingIntro, notes: [] },
   { slide: IntroToThreeD1, notes: [
     `Talk about vectors being 2-3 numbers`,
     `Vectors have a magnitude and a direction`,
@@ -58,19 +60,18 @@ export const threeDModelingRoutes = [
     ] },
   { slide: SceneGraphCode, notes: [] },
   { slide: ProjectionMatrixVisualization, notes: [] },
-  { slide: LightingVisualization, notes: [] },
-  { slide: RenderingGraphics1, notes: [] },
+  { slide: LightingVisualization, notes: ['Talk about normals and comparing to light normal'] },
+  { slide: RenderingGraphics1, notes: ['Talk about playstation, sega saturn, and pc graphics cards at the time doing triangle sorting'] },
   { slide: RenderingGraphics2, notes: [
     'Touch on GLSL syntax and that we need a vertex shader and fragment shader',
     ] },
   { slide: VertexShader, notes: [
-    'This is a slightly simplified version of the real shader'
+    'This is a slightly simplified version of the real shader',
+      'Talk about flow into vert shader out to fragment shader, as the tex coords do'
     ] },
   { slide: FragmentShader, notes: [
-      'This is a slightly simplified version of the real shader'
-    ] },
-  { slide: MeshExample2, notes: [
-    `Reminder on vertex normals and how they point in the direction a vertex "points"`
+      'This is a slightly simplified version of the real shader',
+      'Talk about clamping litPercent, you cant have a black hole',
     ] },
   { slide: Modeler, notes: [
     'Start by changing the width, height, and depth',
@@ -131,9 +132,10 @@ export const threeDModelingRoutes = [
     new MoldableCube(5, 15, 10, 1, 1, 1)
     .translate_(7.5, 2.5)
     .done_()
-  ).done_()`
+  ).done_()`,
+      `Show how the textures don't line up`
     ] },
-  { slide: MeshExample3, notes: [] },
+  { slide: MeshExample3, notes: [`Reminder of how texture coordinates work`] },
   { slide: ModelerJoining2, notes: [
     'Show how the texture coordinates work on the rendered shapes, causing the stretching',
     `new MoldableCube(10, 10, 10, 1, 1, 1)
