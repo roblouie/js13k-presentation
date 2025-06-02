@@ -11,8 +11,6 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
     </template>
 
     <template v-slot:default>
-      <iframe id="play" allow="accelerometer;autoplay;camera;display-capture;encrypted-media;fullscreen;gamepad;geolocation;gyroscope;magnetometer;microphone;midi;payment;picture-in-picture;publickey-credentials-get;sync-xhr;usb;web-share;xr-spatial-tracking"
-              src="/shadows2/shadow-shading.html" class="on full"></iframe>
     </template>
   </BaseSlideTemplate>
 </template>
