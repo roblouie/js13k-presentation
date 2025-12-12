@@ -4,7 +4,6 @@ import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-glsl';
-import {EnhancedDOMPoint} from "@/engine/enhanced-dom-point.ts";
 
 const code = `in vec2 vTexCoord;
 in vec3 vNormal;
@@ -22,7 +21,6 @@ void main() {
   outColor = texture(uSampler, vTexCoord) * litPercent;
 }`;
 
-console.log(new EnhancedDOMPoint(-1, 2, 1).normalize_().toArray());
 </script>
 
 <template>

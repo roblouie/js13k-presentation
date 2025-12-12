@@ -2,7 +2,6 @@
 import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
 import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
-import {audioContext, compressor, InstrumentData, SimplestMidiRev2} from "@/engine/audio/simplest-midi.ts";
 import {ref} from "vue";
 
 const code = `function playSong() {

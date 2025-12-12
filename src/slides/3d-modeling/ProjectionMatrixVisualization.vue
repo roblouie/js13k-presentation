@@ -11,6 +11,7 @@ import BaseSlideTemplate from "../../BaseSlideTemplate.vue";
     </template>
 
     <template v-slot:default>
+    </template>
   </BaseSlideTemplate>
 </template>
 

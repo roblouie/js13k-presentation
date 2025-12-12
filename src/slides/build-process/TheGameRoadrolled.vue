@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import gameCode from './game-code.html?raw';
 import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
 </script>
 
 <template>
-  <PrismEditor class="my-editor" v-model="gameCode" :highlight="code => highlight(code, languages.html, 'html')" />
+<!--  <PrismEditor class="my-editor" v-model="gameCode" :highlight="code => highlight(code, languages.html, 'html')" />-->
 
 </template>
 
