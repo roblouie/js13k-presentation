@@ -5,8 +5,10 @@ import {howTexturesWorkRoutes} from "./how-textures-work/how-textures-work.route
 import {threeDModelingRoutes} from "./3d-modeling/3d-modeling.routes.ts";
 import {audioRoutes} from "./audio/audio.routes.ts";
 import {buildProcessRoutes} from "./build-process/build-process.routes.ts";
+import {numberSystemsRoutes} from "./number-systems/number-systems-routes.ts";
 
 export const slideRoutes = [
+  ...generateRoutesFromList(numberSystemsRoutes),
   ...generateRoutesFromList(howSmallIs13kRoutes),
   ...generateRoutesFromList(demoVideoRoutes),
   ...generateRoutesFromList(audioRoutes),
