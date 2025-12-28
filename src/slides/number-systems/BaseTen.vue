@@ -3,6 +3,7 @@ import numberToText from 'number-to-text';
 import 'number-to-text/converters/en-us';
 import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 import {computed, ref} from "vue";
+import NumberSystemInput from "@/components/NumberSystemInput.vue";
 
 const base = ref(10);
 const baseList = ref([{ pos: 1, value: 0 }]);
@@ -25,7 +26,21 @@ function removePlace() {
 const numberAsText = computed(() => {
   const total = baseList.value.reduce((acc, curr) => acc + curr.pos * curr.value, 0);
   return numberToText.convertToText(total);
-})
+});
+
+function onBaseChange() {
+  [...baseList.value].reverse().forEach((baseItem, index) => {
+    if (index === 0) {
+      baseItem.pos = 1;
+    } else {
+      baseItem.pos = base.value * index
+    }
+
+    if (baseItem.value > (base.value - 1)) {
+      baseItem.value = base.value - 1;
+    }
+  });
+}
 
 </script>
 
@@ -33,15 +48,16 @@ const numberAsText = computed(() => {
   <BaseSlideTemplate>
 
     <template v-slot:header>
-      Base <span class="has-text-primary">10</span>
+      Base <span class="has-text-primary">{{ base }}</span>
       <div class="controls" style="font-size: 1rem;">
+        <select class="select" v-model="base" @change="onBaseChange">
+          <option :value="10">Decimal (Base 10)</option>
+          <option :value="2">Binary (Base 2)</option>
+          <option :value="16">Hexadecimal (Base 16)</option>
+        </select>
         <button class="button is-primary" @click="addToBaseList()">Add Place</button>
         <button class="button is-danger" @click="removePlace()">Remove Place</button>
-        <select class="select">
-          <option>Decimal (Base 10)</option>
-          <option>Binary (Base 2)</option>
-          <option>Hexadecimal (Base 16)</option>
-        </select>
+
       </div>
     </template>
 
@@ -53,7 +69,7 @@ const numberAsText = computed(() => {
 <!--          <div class="is-flex">-->
             <div v-for="b in baseList" :key="b.pos" class="position">
               <div style="margin-bottom: 0.3em; margin-top: -0.3em;">{{ new Intl.NumberFormat().format(b.pos) }}</div>
-              <input type="number" min="0" :max="base - 1" v-model="b.value" />
+              <NumberSystemInput :base="base" v-model="b.value" />
             </div>
 <!--          </div>-->
 
