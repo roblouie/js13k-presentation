@@ -19,6 +19,7 @@ export const numberSystemsRoutes = [
     ] },
   { slide: EarlyComputer3, notes: [] },
   { slide: CharacterDisplay, notes: [
+      'Mention looking for a standard for characters',
       'Mention non-printable characters like newline, tab, space, delete, etc',
         'After adding 8th bit, explain the power of 2, 7 being a prime number but 8 is evenly divisibly in halfs or quarters'
     ] },

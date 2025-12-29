@@ -8,6 +8,7 @@ import NumberSystemInput from "@/components/NumberSystemInput.vue";
 const base = ref(10);
 const baseList = ref([{ pos: 1, value: 0 }]);
 const isShowLabelsInBase = ref(false);
+// TODO: FIX THIS
 const baseLabels = [100_000_000, 10_000_000, 1_000_000, 100_000, 10_000, 1000, 100, 10, 1];
 
 function addToBaseList() {
