@@ -5,21 +5,19 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 
 <template>
   <BaseSlideTemplate>
-
     <template v-slot:header>
-      How Number Bases Work
+      Early Computers
     </template>
 
     <template v-slot:default>
-      <div class="is-flex-grow-1 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-
-        <p class="mt-3">Decimal (Base 10), Binary (Base 2), Hexadecimal (Base 16)</p>
-      </div>
+      <img src="./early-pc-4.png" />
+      <div class="mt-2">Soon computers needed to display characters</div>
     </template>
-
   </BaseSlideTemplate>
 </template>
 
 <style scoped>
-
+img {
+  height: 24em;
+}
 </style>

@@ -5,12 +5,8 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 import {computed, ref} from "vue";
 import NumberSystemInput from "@/components/NumberSystemInput.vue";
 
-const base = ref(10);
+const base = ref(2);
 const baseList = ref([{ pos: 1, value: 0 }]);
-
-const isVerticalMode = ref(false);
-
-setTimeout(() => isVerticalMode.value = true, 2000);
 
 function addToBaseList() {
   const nextValue = baseList.value[0].pos * base.value;
@@ -28,29 +24,14 @@ const numberAsText = computed(() => {
   return numberToText.convertToText(total);
 });
 
-function onBaseChange() {
-  [...baseList.value].reverse().forEach((baseItem, index) => {
-    baseItem.pos = base.value ** index;
-
-    if (baseItem.value > (base.value - 1)) {
-      baseItem.value = base.value - 1;
-    }
-  });
-}
-
 </script>
 
 <template>
   <BaseSlideTemplate>
 
     <template v-slot:header>
-      Base <span class="has-text-primary">{{ base }}</span>
+      Bits to Display Text
       <div class="controls" style="font-size: 1rem;">
-        <select class="select" v-model="base" @change="onBaseChange">
-          <option :value="10">Decimal (Base 10)</option>
-          <option :value="2">Binary (Base 2)</option>
-          <option :value="16">Hexadecimal (Base 16)</option>
-        </select>
         <button class="button is-primary" @click="addToBaseList()">Add Place</button>
         <button class="button is-danger" @click="removePlace()">Remove Place</button>
 
@@ -58,6 +39,13 @@ function onBaseChange() {
     </template>
 
     <template v-slot:default>
+
+      <div>
+        <div class="is-size-3 has-text-right">ABCDEFGHIJKLMNOPQRSTUVWXYZ = 26</div>
+        <div class="is-size-3 has-text-right">abcdefghijklmnopqrstuvwxyz = 26</div>
+        <div class="is-size-3 has-text-right">0123456789!@#$%^&*()_-+=[]{}\|;:'"/?,.<>`~ = 42</div>
+        <div class="total is-size-2 has-text-right">94</div>
+      </div>
 
 <!--      <div class="is-flex-grow-1 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">-->
 
@@ -114,7 +102,11 @@ function onBaseChange() {
 }
 
 .as-text {
-  margin-top: 2em;
+  margin-top: 0.5em;
   font-size: 2em;
+}
+
+.total {
+  border-top: 1px solid gray;
 }
 </style>
