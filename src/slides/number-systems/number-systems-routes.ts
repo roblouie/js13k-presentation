@@ -21,7 +21,8 @@ export const numberSystemsRoutes = [
   { slide: CharacterDisplay, notes: [
       'Mention looking for a standard for characters',
       'Mention non-printable characters like newline, tab, space, delete, etc',
-        'After adding 8th bit, explain the power of 2, 7 being a prime number but 8 is evenly divisibly in halfs or quarters'
+        'After adding 8th bit, explain the power of 2, 7 being a prime number but 8 is evenly divisibly in halfs or quarters',
+        'Mention easier human representation as well, which we will get to...'
     ] },
   { slide: BitsAndBytes, notes: [] },
   { slide: BytesInUse, notes: ['Mention encryption keys using 128-bit or 265-bit encryption'] },

@@ -6,10 +6,11 @@ import {threeDModelingRoutes} from "./3d-modeling/3d-modeling.routes.ts";
 import {audioRoutes} from "./audio/audio.routes.ts";
 import {buildProcessRoutes} from "./build-process/build-process.routes.ts";
 import {numberSystemsRoutes} from "./number-systems/number-systems-routes.ts";
+import {bitwiseOpsRoutes} from "./binary-operations/binary-operations.routes.ts";
 
 export const slideRoutes = [
   ...generateRoutesFromList(numberSystemsRoutes),
-  ...generateRoutesFromList(howSmallIs13kRoutes),
+  ...generateRoutesFromList(bitwiseOpsRoutes),
   ...generateRoutesFromList(demoVideoRoutes),
   ...generateRoutesFromList(audioRoutes),
   ...generateRoutesFromList(howTexturesWorkRoutes),

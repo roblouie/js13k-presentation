@@ -8,8 +8,7 @@ import NumberSystemInput from "@/components/NumberSystemInput.vue";
 const base = ref(10);
 const baseList = ref([{ pos: 1, value: 0 }]);
 const isShowLabelsInBase = ref(false);
-// TODO: FIX THIS
-const baseLabels = [100_000_000, 10_000_000, 1_000_000, 100_000, 10_000, 1000, 100, 10, 1];
+const baseLabels = [100_000_000, 10_000_000, 1_000_000, 100_000, 10_000, 1000, 100, 10, 1].reverse();
 
 function addToBaseList() {
   const nextValue = baseList.value[0].pos * base.value;
@@ -67,7 +66,7 @@ function onBaseChange() {
 <!--          <div class="is-flex">-->
             <div v-for="(b, index) in baseList" :key="b.pos" class="position">
               <div style="margin-bottom: 0.3em; margin-top: -0.3em;">
-                <template v-if="isShowLabelsInBase">{{ new Intl.NumberFormat().format(baseLabels[index]) }}</template>
+                <template v-if="isShowLabelsInBase">{{ new Intl.NumberFormat().format(baseLabels[baseList.length - index - 1]) }}</template>
                 <template v-else>{{ new Intl.NumberFormat().format(b.pos) }}</template>
               </div>
               <NumberSystemInput :base="base" v-model="b.value" />
