@@ -15,6 +15,8 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
       </div>
 
       <div class="mt-6 is-size-2">A <span class="has-text-primary has-text-weight-bold">byte</span> is <span class="has-text-primary has-text-weight-bold">8 bits</span>, so can be 0 - 255.</div>
+
+      <div class="mt-6 is-size-3">We still use bytes to this day, we now just group them into groups of 2, 4, 8, 16, or 32 bytes.</div>
     </template>
   </BaseSlideTemplate>
 </template>
