@@ -15,12 +15,17 @@
 import { computed } from 'vue'
 
 const props = defineProps<{
-  base: 2 | 10 | 16
+  base: 2 | 10 | 16;
+  pos?: number;
 }>()
 
 const modelValue = defineModel<number>({
   required: true,
-})
+});
+
+const emit = defineEmits({
+  update(payload: { pos: number | undefined, value: number }) {}
+});
 
 const maxValue = computed(() => props.base - 1)
 
@@ -53,18 +58,26 @@ function onInput(e: Event) {
     return
   }
 
-  modelValue.value = parsed
+  modelValue.value = parsed;
+
+  emit('update', { pos: props.pos, value: parsed });
 }
 
 function step(dir: 1 | -1) {
+  let value = modelValue.value;
+
   if (dir === -1) {
-    if (modelValue.value > 0) {
-      modelValue.value--;
+    if (value > 0) {
+      value--;
     }
   } else {
-    if (modelValue.value < maxValue.value) {
-      modelValue.value++;
+    if (value < maxValue.value) {
+      value++;
     }
   }
+
+  modelValue.value = value;
+
+  emit('update', { pos: props.pos, value });
 }
 </script>
