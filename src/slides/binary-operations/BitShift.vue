@@ -69,7 +69,7 @@ function clearBit(value: number, bitPosition: number): number {
         </div>
 
       <div class="as-text">{{ value }}</div>
-      <div class="is-size-6">(decimal)</div>
+      <div class="is-size-6">(base 10)</div>
 
     </template>
 
