@@ -17,6 +17,8 @@ import DoubleCpuRegisterClass from "./DoubleCpuRegisterClass.vue";
 import CpuRegisterCollectionClass from "./CpuRegisterCollectionClass.vue";
 import CpuClassStage4Comparison from "./CpuClassStage4Comparison.vue";
 import CpuClassStage5 from "./CpuClassStage5.vue";
+import AddAInstruction from "./AddAInstruction.vue";
+import FlagRegisterClass from "./FlagRegisterClass.vue";
 
 export const cpuRoutes = [
   { slide: CpuIntro, notes: [] },
@@ -45,9 +47,9 @@ export const cpuRoutes = [
   { slide: CpuRegisterCollectionClass, notes: [] },
   { slide: CpuClassStage4Comparison, notes: [] },
   { slide: CpuClassStage5, notes: [] },
-
-
-    // This should come later after showing base arithmetic
+  { slide: AddAInstruction, notes: [] },
   { slide: FlagRegister, notes: [] },
+    // TODO: Getting and setting bits flag
+  { slide: FlagRegisterClass, notes: [] },
 
 ];
