@@ -11,6 +11,12 @@ import JpInstr from "./JpInstr.vue";
 import CpuClassStage3 from "./CpuClassStage3.vue";
 import LoadImmediate from "./LoadImmediate.vue";
 import CpuClassStage4 from "./CpuClassStage4.vue";
+import FlagRegister from "./FlagRegister.vue";
+import CpuRegisterClass from "./CpuRegisterClass.vue";
+import DoubleCpuRegisterClass from "./DoubleCpuRegisterClass.vue";
+import CpuRegisterCollectionClass from "./CpuRegisterCollectionClass.vue";
+import CpuClassStage4Comparison from "./CpuClassStage4Comparison.vue";
+import CpuClassStage5 from "./CpuClassStage5.vue";
 
 export const cpuRoutes = [
   { slide: CpuIntro, notes: [] },
@@ -32,5 +38,16 @@ export const cpuRoutes = [
   { slide: TetrisHeaderHex, notes: [] },
   { slide: LoadImmediate, notes: [] },
   { slide: CpuClassStage4, notes: [] },
+
+    // TODO: Add slide(s) here that shows byte layout of registers, and reminds of the register and register pair codes
+  { slide: CpuRegisterClass, notes: [] },
+  { slide: DoubleCpuRegisterClass, notes: [] },
+  { slide: CpuRegisterCollectionClass, notes: [] },
+  { slide: CpuClassStage4Comparison, notes: [] },
+  { slide: CpuClassStage5, notes: [] },
+
+
+    // This should come later after showing base arithmetic
+  { slide: FlagRegister, notes: [] },
 
 ];
