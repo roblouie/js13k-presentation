@@ -24,8 +24,8 @@ import CpuClassStage6AddInst from "./CpuClassStage6AddInst.vue";
 import CpuClassStage7DecInstr from "./CpuClassStage7DecInstr.vue";
 import CpuClassStage8JpNz from "./CpuClassStage8JpNz.vue";
 import AssemblyExplanation from "./AssemblyExplanation.vue";
-import StackDemo from "./StackDemo.vue";
 import StackExplanation1 from "./StackExplanation1.vue";
+import CpuClassStage9StackPushPop from "./CpuClassStage9StackPushPop.vue";
 
 export const cpuRoutes = [
   { slide: CpuIntro, notes: [] },
@@ -48,7 +48,6 @@ export const cpuRoutes = [
   { slide: LoadImmediate, notes: [] },
   { slide: CpuClassStage4, notes: [] },
 
-    // TODO: Add slide(s) here that shows byte layout of registers, and reminds of the register and register pair codes
   { slide: CpuRegisterClass, notes: [] },
   { slide: DoubleCpuRegisterClass, notes: [] },
   { slide: CpuRegisterCollectionClass, notes: [] },
@@ -64,4 +63,9 @@ export const cpuRoutes = [
   { slide: AssemblyExplanation, notes: [] },
   { slide: JsDebuggerTrace1, notes: [] },
   { slide: StackExplanation1, notes: [] },
+  { slide: CpuClassStage9StackPushPop, notes: [] },
+
+    // TODO: Slides with call and return instructions
+    // TODO: Slide on timing, maybe should be it's own section / folder structure
+
 ];
