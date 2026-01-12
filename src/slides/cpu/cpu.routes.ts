@@ -19,6 +19,11 @@ import CpuClassStage4Comparison from "./CpuClassStage4Comparison.vue";
 import CpuClassStage5 from "./CpuClassStage5.vue";
 import AddAInstruction from "./AddAInstruction.vue";
 import FlagRegisterClass from "./FlagRegisterClass.vue";
+import SettingAndClearingBits from "./SettingAndClearingBits.vue";
+import CpuClassStage6AddInst from "./CpuClassStage6AddInst.vue";
+import CpuClassStage7DecInstr from "./CpuClassStage7DecInstr.vue";
+import CpuClassStage8JpNz from "./CpuClassStage8JpNz.vue";
+import AssemblyExplanation from "./AssemblyExplanation.vue";
 
 export const cpuRoutes = [
   { slide: CpuIntro, notes: [] },
@@ -49,7 +54,11 @@ export const cpuRoutes = [
   { slide: CpuClassStage5, notes: [] },
   { slide: AddAInstruction, notes: [] },
   { slide: FlagRegister, notes: [] },
-    // TODO: Getting and setting bits flag
+  { slide: SettingAndClearingBits, notes: [] },
   { slide: FlagRegisterClass, notes: [] },
+  { slide: CpuClassStage6AddInst, notes: [] },
+  { slide: CpuClassStage7DecInstr, notes: [] },
+  { slide: CpuClassStage8JpNz, notes: [] },
+  { slide: AssemblyExplanation, notes: [] },
 
 ];
