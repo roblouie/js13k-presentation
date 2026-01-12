@@ -24,6 +24,8 @@ import CpuClassStage6AddInst from "./CpuClassStage6AddInst.vue";
 import CpuClassStage7DecInstr from "./CpuClassStage7DecInstr.vue";
 import CpuClassStage8JpNz from "./CpuClassStage8JpNz.vue";
 import AssemblyExplanation from "./AssemblyExplanation.vue";
+import StackDemo from "./StackDemo.vue";
+import StackExplanation1 from "./StackExplanation1.vue";
 
 export const cpuRoutes = [
   { slide: CpuIntro, notes: [] },
@@ -60,5 +62,6 @@ export const cpuRoutes = [
   { slide: CpuClassStage7DecInstr, notes: [] },
   { slide: CpuClassStage8JpNz, notes: [] },
   { slide: AssemblyExplanation, notes: [] },
-
+  { slide: JsDebuggerTrace1, notes: [] },
+  { slide: StackExplanation1, notes: [] },
 ];
