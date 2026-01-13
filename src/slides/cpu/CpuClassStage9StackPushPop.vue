@@ -5,6 +5,8 @@ import {highlight, languages} from "prismjs";
 import {PrismEditor} from "vue-prism-editor";
 import {ref} from "vue";
 
+console.log(languages)
+
 const code = ref(`pushToStack(word: number) {
   this.registers.stackPointer.value -= 2;
   memory.writeWord(this.registers.stackPointer.value, word);
