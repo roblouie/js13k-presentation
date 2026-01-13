@@ -8,6 +8,8 @@ import LcdcClassImp from "./LcdcClassImp.vue";
 import EmulatorTiming from "./EmulatorTiming.vue";
 import GpuStage1 from "./GpuStage1.vue";
 import InstrCycleTiming from "./InstrCycleTiming.vue";
+import InstructionWithCycleTime from "./InstructionWithCycleTime.vue";
+import MainEmuLoop from "./MainEmuLoop.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -27,5 +29,7 @@ export const gpuRoutes = [
   { slide: EmulatorTiming, notes: [] },
     { slide: GpuStage1, notes: [] },
     { slide: InstrCycleTiming, notes: [] },
+  { slide: InstructionWithCycleTime, notes: [] },
+  { slide: MainEmuLoop, notes: [] },
 
 ];
