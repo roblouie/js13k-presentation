@@ -10,6 +10,8 @@ import GpuStage1 from "./GpuStage1.vue";
 import InstrCycleTiming from "./InstrCycleTiming.vue";
 import InstructionWithCycleTime from "./InstructionWithCycleTime.vue";
 import MainEmuLoop from "./MainEmuLoop.vue";
+import GpuStates from "./GpuStates.vue";
+import GpuStateLoop from "./GpuStateLoop.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -31,5 +33,7 @@ export const gpuRoutes = [
     { slide: InstrCycleTiming, notes: [] },
   { slide: InstructionWithCycleTime, notes: [] },
   { slide: MainEmuLoop, notes: [] },
+  { slide: GpuStates, notes: [] },
+  { slide: GpuStateLoop, notes: [] },
 
 ];
