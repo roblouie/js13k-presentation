@@ -14,6 +14,10 @@ import GpuStates from "./GpuStates.vue";
 import GpuStateLoop from "./GpuStateLoop.vue";
 import BackgroundGuideImage from "./BackgroundGuideImage.vue";
 import TetrisBackground from "./TetrisBackground.vue";
+import BackgroundPixelToDraw from "./BackgroundPixelToDraw.vue";
+import MetroidBackground from "./MetroidBackground.vue";
+import BackgroundFindBlock from "./BackgroundFindBlock.vue";
+import TileFound from "./TileFound.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -39,5 +43,12 @@ export const gpuRoutes = [
   { slide: GpuStateLoop, notes: [] },
   { slide: BackgroundGuideImage, notes: [] },
   { slide: TetrisBackground, notes: [] },
+  { slide: MetroidBackground, notes: [] },
+  { slide: BackgroundPixelToDraw, notes: [] },
+  { slide: BackgroundFindBlock, notes: [] },
+  { slide: BackgroundGuideImage, notes: [] },
+  { slide: TileFound, notes: [
+      `We found the tile, but we're only drawing a single pixel. Which value do we want?`
+    ] },
 
 ];
