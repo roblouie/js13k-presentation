@@ -18,12 +18,15 @@ import BackgroundPixelToDraw from "./BackgroundPixelToDraw.vue";
 import MetroidBackground from "./MetroidBackground.vue";
 import BackgroundFindBlock from "./BackgroundFindBlock.vue";
 import TileFound from "./TileFound.vue";
+import BackgroundFindUpperLeft from "./BackgroundFindUpperLeft.vue";
+import GameboyPalettes from "./GameboyPalettes.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
   { slide: GameboyVram, notes: [
       'Make sure to talke about palettes'
     ] },
+  { slide: GameboyPalettes, notes: [] },
   { slide: MemoryMap, notes: [] },
   { slide: GameboyVramMetroid, notes: [] },
   { slide: GbDrawingModes, notes: [
@@ -50,5 +53,8 @@ export const gpuRoutes = [
   { slide: TileFound, notes: [
       `We found the tile, but we're only drawing a single pixel. Which value do we want?`
     ] },
+  { slide: BackgroundFindUpperLeft, notes: [] },
+  { slide: BackgroundPixelToDraw, notes: [] },
 
+    // We've found the pixel X and Y position inside the tile. Now we need to use those to go get the pixel data
 ];
