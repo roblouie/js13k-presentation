@@ -12,6 +12,8 @@ import InstructionWithCycleTime from "./InstructionWithCycleTime.vue";
 import MainEmuLoop from "./MainEmuLoop.vue";
 import GpuStates from "./GpuStates.vue";
 import GpuStateLoop from "./GpuStateLoop.vue";
+import BackgroundGuideImage from "./BackgroundGuideImage.vue";
+import TetrisBackground from "./TetrisBackground.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -35,5 +37,7 @@ export const gpuRoutes = [
   { slide: MainEmuLoop, notes: [] },
   { slide: GpuStates, notes: [] },
   { slide: GpuStateLoop, notes: [] },
+  { slide: BackgroundGuideImage, notes: [] },
+  { slide: TetrisBackground, notes: [] },
 
 ];
