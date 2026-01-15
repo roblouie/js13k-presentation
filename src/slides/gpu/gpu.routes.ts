@@ -26,6 +26,8 @@ import MetroidWindow from "./MetroidWindow.vue";
 import WindowRegisters from "./WindowRegisters.vue";
 import SpritesTetris from "./SpritesTetris.vue";
 import SpriteRegisters from "./SpriteRegisters.vue";
+import ObjPrioritySameX from "./ObjPrioritySameX.vue";
+import ObjPriorityByX from "./ObjPriorityByX.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -73,5 +75,8 @@ export const gpuRoutes = [
   { slide: WindowRegisters, notes: [] },
   { slide: SpritesTetris, notes: [] },
   { slide: SpriteRegisters, notes: [] },
+  { slide: ObjPriorityByX, notes: [] },
+  { slide: ObjPrioritySameX, notes: [] },
 
+    //TODO: If it seems like there's time, this is a good place to talk about interrupts
 ];
