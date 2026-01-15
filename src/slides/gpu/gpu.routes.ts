@@ -20,6 +20,7 @@ import BackgroundFindBlock from "./BackgroundFindBlock.vue";
 import TileFound from "./TileFound.vue";
 import BackgroundFindUpperLeft from "./BackgroundFindUpperLeft.vue";
 import GameboyPalettes from "./GameboyPalettes.vue";
+import TileLaidOUt from "./TileLaidOUt.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -55,6 +56,7 @@ export const gpuRoutes = [
     ] },
   { slide: BackgroundFindUpperLeft, notes: [] },
   { slide: BackgroundPixelToDraw, notes: [] },
+  { slide: TileLaidOUt, notes: [] },
 
     // We've found the pixel X and Y position inside the tile. Now we need to use those to go get the pixel data
 ];
