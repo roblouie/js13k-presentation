@@ -21,6 +21,11 @@ import TileFound from "./TileFound.vue";
 import BackgroundFindUpperLeft from "./BackgroundFindUpperLeft.vue";
 import GameboyPalettes from "./GameboyPalettes.vue";
 import TileLaidOUt from "./TileLaidOUt.vue";
+import WindowDiagram from "./WindowDiagram.vue";
+import MetroidWindow from "./MetroidWindow.vue";
+import WindowRegisters from "./WindowRegisters.vue";
+import SpritesTetris from "./SpritesTetris.vue";
+import SpriteRegisters from "./SpriteRegisters.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [] },
@@ -56,7 +61,17 @@ export const gpuRoutes = [
     ] },
   { slide: BackgroundFindUpperLeft, notes: [] },
   { slide: BackgroundPixelToDraw, notes: [] },
-  { slide: TileLaidOUt, notes: [] },
+  { slide: TileLaidOUt, notes: [
+      `Talk about 16 bytes per tile allowing us to take our tile index and multiply by 16 to get the address of our tile`,
+        `Then we can use the pixel y position in the tile times two to get the address of the row of pixels, 
+        in our case, row 2 * 2 bytes = byte 4. We can read that 16-bit value, then use pixel x position to find our two bits`,
+        `Then we use that to look up the color in the background palette, and draw the color to the screen.`,
+    ] },
 
-    // We've found the pixel X and Y position inside the tile. Now we need to use those to go get the pixel data
+  { slide: WindowDiagram, notes: [] },
+  { slide: MetroidWindow, notes: [] },
+  { slide: WindowRegisters, notes: [] },
+  { slide: SpritesTetris, notes: [] },
+  { slide: SpriteRegisters, notes: [] },
+
 ];
