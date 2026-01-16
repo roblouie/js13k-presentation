@@ -78,5 +78,7 @@ export const gpuRoutes = [
   { slide: ObjPriorityByX, notes: [] },
   { slide: ObjPrioritySameX, notes: [] },
 
+    // TODO: Probably talk about image data vs drawing to canvas performance
+
     //TODO: If it seems like there's time, this is a good place to talk about interrupts
 ];

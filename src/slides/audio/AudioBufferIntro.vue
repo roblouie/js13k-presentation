@@ -27,9 +27,14 @@ const [debounce, clearDebounce] = useDebounce();
 
 onMounted(playAudioAndDrawToCanvas);
 
+const isWholeWave = ref(false);
+
 watch(code, () => {
   debounce(playAudioAndDrawToCanvas, 800);
 });
+
+watch(isWholeWave, playAudioAndDrawToCanvas);
+
 
 function playAudioAndDrawToCanvas() {
   if (!canvasElement.value) {
@@ -41,14 +46,15 @@ function playAudioAndDrawToCanvas() {
   context.beginPath();
   context.moveTo(0, 0);
   context.moveTo(0, 200);
-  context.lineWidth = 5;
+  context.lineWidth = isWholeWave.value ? 1 : 5;
   context.strokeStyle = 'white';
 
   try {
     const func = eval(`(function audio() { ${code.value} return myArrayBuffer; })`);
     const bufferData = func().getChannelData(0);
-    bufferData.slice(0, Math.floor(bufferData.length / 20)).forEach((val, index) => {
-      context.lineTo(index / 1.5, val * -195 + 200);
+    const perLine = bufferData.length / 400;
+    bufferData.forEach((val, index) => {
+      context.lineTo(index / (isWholeWave.value ? perLine : 1.5), val * -195 + 200);
     });
     context.stroke();
   } catch(e) {
@@ -66,7 +72,11 @@ function playAudioAndDrawToCanvas() {
 
       <PrismEditor class="my-editor" style="width: 65vw; font-size: 0.8em;" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
 
-      <div style="width: 30vw; text-align: center; font-size: 1em;">
+      <div style="width: 30vw; text-align: center; font-size: 1em;" class="is-flex is-flex-direction-column p-3">
+        <label>
+          <input type="checkbox" v-model="isWholeWave" />
+          Show Whole Sound
+        </label>
         <canvas ref="canvas" width="400" height="400" />
       </div>
     </div>
