@@ -1,23 +1,11 @@
 <script setup lang="ts">
 
-import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 </script>
 
 <template>
-  <BaseSlideTemplate>
-
-    <template v-slot:header>
-      Audio
-    </template>
-
-    <template v-slot:default>
-      <div class="is-flex-grow-1 is-flex flex-column is-justify-content-center is-align-items-center">
-
-        <img src="./synth.png" />
-      </div>
-    </template>
-
-  </BaseSlideTemplate>
+  <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" style="height: 100vh;">
+    <h1 style="font-size: 18em;" class="has-text-weight-bold mb-0 has-text-primary-05-invert">APU</h1>
+  </div>
 </template>
 
 <style scoped>
