@@ -7,7 +7,7 @@
         <button @click="reset">Reset</button>
 
         <label class="ctrl">
-          Frequency
+          Note
           <input type="range" min="60" max="1200" step="1" v-model.number="freqHz" />
           <span class="mono">{{ freqHz }} Hz</span>
         </label>
@@ -39,7 +39,7 @@
     <div class="row">
       <!-- CPU cycle strip -->
       <div class="panel">
-        <div class="panelTitle">CPU cycles</div>
+        <div class="panelTitle">CPU Cycles</div>
         <div class="cpuStrip">
           <div class="cpuTicks">
             <div v-for="i in cpuTickMarks" :key="i" class="tick">
@@ -51,12 +51,12 @@
           <div class="cpuCursor" :style="cpuCursorStyle"></div>
           <div class="cpuSampleGate" :style="sampleGateStyle" title="sample boundary"></div>
         </div>
-        <div class="hint">Cursor advances by CPU cycles. Every ~{{ cyclesPerSample }} cycles, we “write” one audio sample.</div>
+        <div class="hint">Cursor advances by CPU cycles. Every ~{{ cyclesPerSample }} cycles, we produce one audio sample.</div>
       </div>
 
       <!-- Duty pattern -->
       <div class="panel">
-        <div class="panelTitle">Duty pattern</div>
+        <div class="panelTitle">Duty Cycle</div>
         <div class="dutyStrip">
           <div
               v-for="i in 8"
@@ -76,7 +76,7 @@
 
     <!-- Buffer waveform -->
     <div class="panel wide">
-      <div class="panelTitle">Audio buffer</div>
+      <div class="panelTitle">Audio Buffer</div>
       <canvas ref="canvasEl" class="wave" :width="canvasW" :height="canvasH"></canvas>
 <!--      <div class="bufferLegend mono">-->
 <!--        write head: {{ writeHead }} / {{ bufferSize }}-->
