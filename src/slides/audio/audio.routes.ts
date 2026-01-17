@@ -9,6 +9,10 @@ import DigitalAudioSampling from "./DigitalAudioSampling.vue";
 import AudioTiming from "./AudioTiming.vue";
 import SoundFunctions from "./SoundFunctions.vue";
 import SweepTiming from "./SweepTiming.vue";
+import ApuOrchestration from "./ApuOrchestration.vue";
+import Audio1 from "./Audio1.vue";
+import AudioCycleVisualizer from "./AudioCycleVisualizer.vue";
+import VisualizerSlide from "./VisualizerSlide.vue";
 
 export const audioRoutes = [
   { slide: AudioOpening, notes: [] },
@@ -53,5 +57,8 @@ source.start();`,
 
   { slide: AudioTiming, notes: [] },
   { slide: SweepTiming, notes: [] },
+  { slide: ApuOrchestration, notes: [] },
+  { slide: Audio1, notes: [] },
+  { slide: VisualizerSlide, notes: [] },
 
 ];
