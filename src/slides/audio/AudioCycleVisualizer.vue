@@ -68,7 +68,7 @@
               phase: (i - 1) === phaseStep
             }"
           >
-            <div class="mini mono">{{ i - 1 }}</div>
+            <div class="mini mono duty-label">{{ dutyPattern[i - 1] }}</div>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
 
     <!-- Buffer waveform -->
     <div class="panel wide">
-      <div class="panelTitle">Audio buffer (what you’d send to the output)</div>
+      <div class="panelTitle">Audio buffer</div>
       <canvas ref="canvasEl" class="wave" :width="canvasW" :height="canvasH"></canvas>
 <!--      <div class="bufferLegend mono">-->
 <!--        write head: {{ writeHead }} / {{ bufferSize }}-->
@@ -288,6 +288,10 @@ watch([freqHz, dutyIndex], () => draw());
   max-width: 1100px;
 }
 
+.duty-label {
+  text-align: center;
+}
+
 .top {
   display: grid;
   gap: 10px;
@@ -451,11 +455,8 @@ button:hover { background: rgba(255,255,255,0.12); }
 }
 
 .mini {
-  position: absolute;
-  bottom: 6px;
-  left: 8px;
+  margin-top: 18px;
   font-size: 11px;
-  opacity: 0.75;
 }
 
 /* Wave canvas */
