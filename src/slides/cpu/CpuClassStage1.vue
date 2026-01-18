@@ -13,7 +13,7 @@ const code = ref(`class Cpu {
     this.memory = memory;
   }
 
-  runCycle() {
+  runCommand() {
     const operation = this.memory.readByte(this.programCounter);
     this.programCounter++;
     // TODO: Lookup command and run it.

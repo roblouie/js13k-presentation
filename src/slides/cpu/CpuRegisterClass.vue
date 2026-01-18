@@ -6,7 +6,7 @@ import {PrismEditor} from "vue-prism-editor";
 import {ref} from "vue";
 
 const code = ref(`class CpuRegister {
-  readonly code: number;
+  readonly code: number; // A: 111, B: 000, C: 001, etc...
 
   protected readonly offset: number;
   protected readonly dataView: DataView;

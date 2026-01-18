@@ -33,32 +33,73 @@ export const cpuRoutes = [
       'Talk about the different color coded areas',
         'For our purposes for now, jus the yellow part is what we care about for cpu',
         'Cover the registers, PC, and SP at a super high level. Point out the side by side 8bit - 16bit nature',
+        `Make sure to talk about the PC loading data into registers to do work. 
+        "The registers are where the cpu runs logic". Adding, subtracting, etc.`,
+        `Main cpu flow is pull data from ram into register(s), perform operations on those values, write back to memory`,
     ] },
   { slide: ProgramCounter, notes: ['Talk about similarities to js where it executes line by line, jumps on function.'] },
   { slide: JsDebuggerTrace1, notes: [] },
   { slide: CpuClassStage1, notes: [] },
-  { slide: CartridgeHeaderSpec, notes: [] },
-  { slide: TetrisHeaderHex, notes: [] },
-  { slide: Nop, notes: [] },
-  { slide: CpuClassStage2, notes: [] },
-  { slide: TetrisHeaderHex, notes: [] },
-  { slide: JpInstr, notes: [] },
+  { slide: CartridgeHeaderSpec, notes: [`Real world example of tetris is next.`] },
+  { slide: TetrisHeaderHex, notes: [`Here is the tetris rom in a hex editor. A hex editor lets you see the bytes of the file`,
+    `On the right it shows those bytes as ascii text.`] },
+  { slide: Nop, notes: [
+      `Talk about games being written in assembly. NOP command goes in code editor, 0 comes out`
+    ] },
+  { slide: CpuClassStage2, notes: [
+      `This emulates the first command of every single gameboy game ever made`,
+        `Of course it does nothing so it doesn't accomplish much, but this is the pattern for ALL commands`,
+        `Look up byte code for assembly instruction, and add a function at that point in the array,
+        when program counter points to that byte, look it up and run it.`
+    ] },
+  { slide: TetrisHeaderHex, notes: [
+      `This is a good time to talk about low byte - hight byte, and talk about human reading vs computer, 
+      and show the address.`
+    ] },
+  { slide: JpInstr, notes: [
+      `Explain JP nn assembly, and low and high byte`,
+      `Hex editor shows hex, gameboy manual shows binary, so conversion up top.`,
+    ] },
   { slide: CpuClassStage3, notes: [] },
   { slide: TetrisHeaderHex, notes: [] },
-  { slide: LoadImmediate, notes: [] },
-  { slide: CpuClassStage4, notes: [] },
+  { slide: LoadImmediate, notes: [
+      `Remember our cpu loads data from meory into registers to do it's work. Here is a command for 
+      loading data from memory into a register.`,
+        `Talk about the assembly, and especially about the more advanced "compilation" with the register codes.`,
+        `Show the different register codes changing the value in the top bar`,
+        `Talk about how those register codes are used in every command with registers, LD, save, add, subtract`
+    ] },
+  { slide: CpuClassStage4, notes: [
+      `show adding registers, then show each new command, including how each command subs out the bits
+      for the register, and which register is used`,
+        `Then talk about this being "pseudo-code", and messy. This is just one command that has exploded to
+        8 commands. And each register isn't a byte / byte pair. We should fix these things.`,
+        `"We should associate 111 with A, 000 with B, etc, since they are always used together.`
+    ] },
 
-  { slide: CpuRegisterClass, notes: [] },
-  { slide: DoubleCpuRegisterClass, notes: [] },
-  { slide: CpuRegisterCollectionClass, notes: [] },
+  { slide: CpuRegisterClass, notes: [
+      `In summary, we have associated the register code with the register, and allowed reading and writing as a byte`
+    ] },
+  { slide: DoubleCpuRegisterClass, notes: [
+      `If you remember, the CPU can also read and write register pairs as 16-bit values, so this is used for that`,
+        `AF, BC, etc`,
+    ] },
+  { slide: CpuRegisterCollectionClass, notes: [
+      `Make sure to scroll down to show arrays!!!`
+    ] },
   { slide: CpuClassStage4Comparison, notes: [] },
   { slide: CpuClassStage5, notes: [] },
-  { slide: AddAInstruction, notes: [] },
+  { slide: AddAInstruction, notes: [
+      `Talk about the flag register, and how it helps knowing the result of what just happened.`,
+        `Good analogy for HC and C, is HC is 9+1, C is 90 + 10. 99 + 1 would turn both on.`,
+        `N is for subtraction, this is ADD, so the flag is turned off`
+    ] },
   { slide: FlagRegister, notes: [] },
-  { slide: SettingAndClearingBits, notes: [] },
   { slide: FlagRegisterClass, notes: [] },
   { slide: CpuClassStage6AddInst, notes: [] },
-  { slide: CpuClassStage7DecInstr, notes: [] },
+  { slide: CpuClassStage7DecInstr, notes: [
+      `This is like the -- instruction in js`
+    ] },
   { slide: CpuClassStage8JpNz, notes: [] },
   { slide: AssemblyExplanation, notes: [] },
   { slide: JsDebuggerTrace1, notes: [] },

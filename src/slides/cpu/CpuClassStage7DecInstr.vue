@@ -10,7 +10,7 @@ this.registers.baseRegisters.forEach(register => {
   this.operations[(register.code << 3) + 0b101] = () => {
     const newValue = (register.value - 1) & 0xff;
     registers.F.isResultZero = newValue === 0;
-    registers.F.isHalfCarry = (newValue & 0x0f) > (originalValue & 0x0f);
+    registers.F.isHalfCarry = (register.value & 0x0f) === 0;
     registers.F.isSubtraction = true;
     register.value = newValue;
   };

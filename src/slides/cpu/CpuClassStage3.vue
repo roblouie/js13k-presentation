@@ -24,7 +24,7 @@ const code = ref(`class Cpu {
     }
   }
 
-  runCycle() {
+  runCommand() {
     const operationByte = this.memory.readByte(this.programCounter);
     this.programCounter++;
     const operation = this.operations[operation];
