@@ -18,15 +18,31 @@ export const audioRoutes = [
   { slide: AudioOpening, notes: [] },
     { slide: DigitalAudioSampling, notes: [] },
     { slide: AudioBufferIntro, notes: [
+        `start with white noise and explain buffer data in general`,
+          `replace white noise with a sin wave`,
+          `const noteFrequency = 161;
+const radians = 2 * Math.PI;
+const phaseStep = radians * noteFrequency / audioCtx.sampleRate;
+let phase = 0;
+for (let i = 0; i < bufferData.length; i++) {
+  bufferData[i] = Math.sin(phase);
+  phase += phaseStep;
+}`,
+
+    `Now convert to square wave with Math.sin(phase) > 0 ? -1 : 1`,
+
+          `Then add sweep, which is the same as below minus any volume work`,
+
+
       `const audioCtx = new AudioContext();
 const rate = audioCtx.sampleRate;
 const myArrayBuffer = audioCtx.createBuffer(1, rate, rate);
 const bufferData = myArrayBuffer.getChannelData(0);
 
-const middleCFrequency = 161;
+const noteFrequency = 161;
 const radians = 2 * Math.PI;
 let sweep = 0;
-const phaseStep = () => radians * (middleCFrequency + sweep) / audioCtx.sampleRate;
+const phaseStep = () => radians * (noteFrequency + sweep) / audioCtx.sampleRate;
 let phase = 0;
 
 let volume = 0;

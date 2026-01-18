@@ -30,44 +30,77 @@ import ObjPrioritySameX from "./ObjPrioritySameX.vue";
 import ObjPriorityByX from "./ObjPriorityByX.vue";
 
 export const gpuRoutes = [
-  { slide: GpuIntro, notes: [] },
+  { slide: GpuIntro, notes: [
+      `We talked about the memory area for character data, lets look at some of that:`
+    ] },
   { slide: GameboyVram, notes: [
-      'Make sure to talke about palettes'
+      'Make sure to talke about palettes',
+        `This is not exactly how they are stored in ram...`
     ] },
   { slide: GameboyPalettes, notes: [] },
   { slide: MemoryMap, notes: [] },
-  { slide: GameboyVramMetroid, notes: [] },
+  { slide: GameboyVramMetroid, notes: [
+      `This is ALL the graphics! Always. Games can swap them out here, but this is all the graphics the
+      gameboy can draw at any one time. Everything we see from here out is going to just draw these tiles
+      at different positions in different layers.`
+    ] },
   { slide: GbDrawingModes, notes: [
       'To implement these three drawing modes, we first need to account for how they are controlled.'
     ] },
-  { slide: LcdcDiagram, notes: [] },
-  { slide: MemoryMap, notes: [] },
+  { slide: LcdcDiagram, notes: [
+      `Our first external register. Lives at ff40 as seen here. Games can read and write this for graphic card info`
+    ] },
+  { slide: MemoryMap, notes: [
+      `This is a good time to remind about memory registers in ff00 - ff80, as we will be using those`
+    ] },
   { slide: LcdcClassImp, notes: [
-      'Next we need to talk about timing'
+      `There are a number of these types of registers that we will use to orchestrate drawing the background, sprites, and windows.`,
+        `I won't be showing all of them, but they are all like this, mapped from the gameboy programming manual to the
+        correct addresses and individual bits/bytes for different values`,
+      'Next we need to talk about timing, which we have ignored so far, which is directly related to graphics card'
     ] },
   { slide: EmulatorTiming, notes: [] },
-    { slide: GpuStage1, notes: [] },
+    { slide: GpuStage1, notes: [
+        `Talk about drawing scanline by scanline, and the timing of that`
+      ] },
     { slide: InstrCycleTiming, notes: [] },
   { slide: InstructionWithCycleTime, notes: [] },
   { slide: MainEmuLoop, notes: [] },
   { slide: GpuStates, notes: [] },
-  { slide: GpuStateLoop, notes: [] },
+  { slide: GpuStateLoop, notes: [
+      `We cycle through the different states, only taking action in hblank where we draw the scanline`,
+        `Otherwise we simply keep other graphics card registers up to date so game code can read from them`
+    ] },
   { slide: BackgroundGuideImage, notes: [] },
   { slide: TetrisBackground, notes: [] },
   { slide: MetroidBackground, notes: [] },
-  { slide: BackgroundPixelToDraw, notes: [] },
-  { slide: BackgroundFindBlock, notes: [] },
+  { slide: BackgroundPixelToDraw, notes: [
+      `Mention that we want to draw the pixel at position 0, 2 from tile 83. Explain the math at a basic level`
+    ] },
+  { slide: BackgroundFindBlock, notes: [
+      `As the graphics card, all we know up front is that we are drawing pixels for a scanline.`,
+        `We need to figure out what tile the current pixel lives in`
+    ] },
   { slide: BackgroundGuideImage, notes: [] },
   { slide: TileFound, notes: [
       `We found the tile, but we're only drawing a single pixel. Which value do we want?`
     ] },
-  { slide: BackgroundFindUpperLeft, notes: [] },
+  { slide: BackgroundFindUpperLeft, notes: [
+      `Walk through the math`,
+        `Now we know what pixel in what tile to draw for our single pixel of our scanline,
+        but how are the pixels stored in data?`
+    ] },
   { slide: BackgroundPixelToDraw, notes: [] },
   { slide: TileLaidOUt, notes: [
       `Talk about 16 bytes per tile allowing us to take our tile index and multiply by 16 to get the address of our tile`,
         `Then we can use the pixel y position in the tile times two to get the address of the row of pixels, 
         in our case, row 2 * 2 bytes = byte 4. We can read that 16-bit value, then use pixel x position to find our two bits`,
         `Then we use that to look up the color in the background palette, and draw the color to the screen.`,
+        `Summary: This is a little difficult to think about conceptually with allthe lookups, but it works like this:
+        As the graphics card, we only know where the background is scrolled to and what pixel in what scanline to draw.
+        We have to use that to go find which tile to read from memory, and then which pixel in that tile.
+        We need a series of lookups to go from scrolled pixel position, to tile, to pixel in tile.`,
+        `The good news is: ALL OTHER LAYERS USE THIS LOGIC`
     ] },
 
   { slide: WindowDiagram, notes: [] },
@@ -78,7 +111,5 @@ export const gpuRoutes = [
   { slide: ObjPriorityByX, notes: [] },
   { slide: ObjPrioritySameX, notes: [] },
 
-    // TODO: Probably talk about image data vs drawing to canvas performance
-
-    //TODO: If it seems like there's time, this is a good place to talk about interrupts
+    // TODO: A slide showing final(ish) gpu drawing code
 ];

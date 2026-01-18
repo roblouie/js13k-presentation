@@ -14,7 +14,7 @@ import {PrismEditor} from "vue-prism-editor";
     </template>
 
     <template v-slot:default>
-      <img src="./background-guide-image.png" style="width: 70vw;" />
+      <img src="./background-guide-image.png" style="width: 63vw;" />
     </template>
   </BaseSlideTemplate>
 </template>

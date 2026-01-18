@@ -18,7 +18,7 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
           to the right and bottom of the screen.
         </li>
         <li>
-          <b class="has-text-white">Sprite (OBJ)</b> - Games specify an x and y position, and horizontal/vertical mirroring, and draw a tile.
+          <b class="has-text-white">Sprite (OBJ)</b> - Games specify an x and y position, horizontal/vertical mirroring, and draw a tile.
           Used for animated parts of the screen like player, enemies, items, explosions.
         </li>
       </ul>

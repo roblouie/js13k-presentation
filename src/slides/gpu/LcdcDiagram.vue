@@ -14,7 +14,7 @@ import {PrismEditor} from "vue-prism-editor";
     </template>
 
     <template v-slot:default>
-      <img src="./lcdc-diag.png" style="height: 80vh;" />
+      <img src="./lcdc-diag.png" style="height: 80vh; filter: invert()" />
     </template>
   </BaseSlideTemplate>
 </template>

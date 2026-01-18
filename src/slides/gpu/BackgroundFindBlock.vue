@@ -24,7 +24,7 @@ private getTileIndexFromPixelLocation(x: number, y: number) {
 <template>
   <BaseSlideTemplate>
 
-  <template v-slot:header>Find Block</template>
+  <template v-slot:header>Find Tile</template>
 
   <template v-slot:default>
     <div class="is-flex is-align-items-center" style="height: 80vh; padding: 3em 2em 3em 2em">

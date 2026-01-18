@@ -14,7 +14,7 @@ import {PrismEditor} from "vue-prism-editor";
     </template>
 
     <template v-slot:default>
-      <img src="./window-diagram.png" style="width: 75vw; filter: invert()" />
+      <img src="./window-diagram.png" style="height: 75vh; filter: invert()" />
     </template>
   </BaseSlideTemplate>
 </template>

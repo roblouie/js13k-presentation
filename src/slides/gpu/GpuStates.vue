@@ -19,7 +19,7 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
         </li>
         <li>
           Transfer pixels for that scanline to the LCD screen for drawing. These are determined by
-          checking what what tiles are being drawing in the background, window, and sprite layers
+          checking what tiles are being drawn in the background, window, and sprite layers
           and reading the relevant tile pixels.
         </li>
         <li>

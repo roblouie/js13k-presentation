@@ -13,7 +13,7 @@ const bufferData = myArrayBuffer.getChannelData(0);
 
 
 for (let i = 0; i < bufferData.length; i++) {
-  bufferData[i] = Math.random();
+  bufferData[i] = Math.random() * 0;
 }
 
 const source = audioCtx.createBufferSource();
@@ -77,7 +77,7 @@ function playAudioAndDrawToCanvas() {
           <input type="checkbox" v-model="isWholeWave" />
           Show Whole Sound
         </label>
-        <canvas ref="canvas" width="400" height="400" />
+        <canvas @click="playAudioAndDrawToCanvas" ref="canvas" width="400" height="400" />
       </div>
     </div>
 

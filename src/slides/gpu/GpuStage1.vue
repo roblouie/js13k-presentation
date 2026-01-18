@@ -10,12 +10,13 @@ const code = ref(`export class GPU {
   static ScreenHeight = 144;
   private static HeightIncludingVBlank = 154;
 
-  private static CyclesPerHBlank = 204;
   private static CyclesPerScanlineOam = 80;
   private static CyclesPerScanlineVram = 172;
+  private static CyclesPerHBlank = 204;
+
   private static CyclesPerScanline = GPU.CyclesPerHBlank
                                    + GPU.CyclesPerScanlineOam
-                                   + GPU.CyclesPerScanlineVram;
+                                   + GPU.CyclesPerScanlineVram; // 456 cycles / scanline
   private static CyclesPerVBlank = 4560;
   static CyclesPerFrame = (GPU.CyclesPerScanline * GPU.HeightIncludingVBlank);
 }`);
