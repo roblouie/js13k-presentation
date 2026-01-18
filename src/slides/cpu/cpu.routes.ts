@@ -101,12 +101,19 @@ export const cpuRoutes = [
       `This is like the -- instruction in js`
     ] },
   { slide: CpuClassStage8JpNz, notes: [] },
-  { slide: AssemblyExplanation, notes: [] },
-  { slide: JsDebuggerTrace1, notes: [] },
+  { slide: AssemblyExplanation, notes: [
+      `When devs write assembly, they use labels rather than hard coded memory addresses, as this would be impossible to maintain`,
+        `During compilation, the label is replaced by the address of the next command.`,
+        `I put our starting address at 0x0150 because that is the first address in a gameboy cartidge,
+        but it doesn't matter. It depends where this code lives in the final compilation.`
+    ] },
+  { slide: JsDebuggerTrace1, notes: [
+      `We've seen this video before, but we skipped over something important last time. *Play until hitting return statement`,
+        `How does it know where to return from? We don't say return to line 128. If we did it wouldn't be a very flexible function
+        it can be run from anywhere and return to anywhere...but how?`
+    ] },
   { slide: StackExplanation1, notes: [] },
   { slide: CpuClassStage9StackPushPop, notes: [] },
 
     // TODO: Slides with call and return instructions
-    // TODO: Slide on timing, maybe should be it's own section / folder structure
-
 ];
