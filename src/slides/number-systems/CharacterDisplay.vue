@@ -41,10 +41,11 @@ const numberAsText = computed(() => {
     <template v-slot:default>
 
       <div>
-        <div class="is-size-3 has-text-right">ABCDEFGHIJKLMNOPQRSTUVWXYZ = 26</div>
-        <div class="is-size-3 has-text-right">abcdefghijklmnopqrstuvwxyz = 26</div>
-        <div class="is-size-3 has-text-right">0123456789!@#$%^&*()_-+=[]{}\|;:'"/?,.<>`~ = 42</div>
-        <div class="total is-size-2 has-text-right">94</div>
+        <div class="is-size-4 has-text-right">ABCDEFGHIJKLMNOPQRSTUVWXYZ = 26</div>
+        <div class="is-size-4 has-text-right">abcdefghijklmnopqrstuvwxyz = 26</div>
+        <div class="is-size-4 has-text-right">0123456789!@#$%^&*()_-+=[]{}\|;:'"/?,.<>`~ = 42</div>
+        <div class="is-size-4 has-text-right">DEL SP FF NUL SOH STX ETX EOT ENQ ACK ... = 33</div>
+        <div class="total is-size-2 has-text-right">127</div>
       </div>
 
 <!--      <div class="is-flex-grow-1 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">-->

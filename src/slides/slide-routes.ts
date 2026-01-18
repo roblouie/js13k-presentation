@@ -6,8 +6,10 @@ import {cpuRoutes} from "./cpu/cpu.routes.ts";
 import {gpuRoutes} from "./gpu/gpu.routes.ts";
 import {audioRoutes} from "./audio/audio.routes.ts";
 import {summaryRoutes} from "./summary/summary.routes.ts";
+import {introRoutes} from "./intro/intro.routes.ts";
 
 export const slideRoutes = [
+  ...generateRoutesFromList(introRoutes),
   ...generateRoutesFromList(numberSystemsRoutes),
   ...generateRoutesFromList(bitwiseOpsRoutes),
   ...generateRoutesFromList(ramAndCartridgeRoutes),

@@ -6,7 +6,7 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 <template>
   <BaseSlideTemplate>
     <template v-slot:header>
-      Bytes
+      Power of 2 & Bytes
     </template>
 
     <template v-slot:default>

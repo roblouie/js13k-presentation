@@ -30,6 +30,5 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 <style scoped>
 pre {
   width: 8em;
-  text-align: right;
 }
 </style>

@@ -10,9 +10,9 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
 
     <template v-slot:default>
       <ul>
-        <li>ArrayBuffer - A buffer that holds byte data. Read only after creation. FileReader can read a File into an ArrayBuffer</li>
-        <li>Typed Arrays - Provides an array interface into the ArrayBuffer.</li>
-        <li>DataView - Allows retrieving of values from any position with multiple sizes.</li>
+        <li><b class="has-text-white">ArrayBuffer</b> - A buffer that holds byte data. Read only after creation. FileReader can read a File into an ArrayBuffer</li>
+        <li><b class="has-text-white">Typed Arrays</b> - Provides an array interface into the ArrayBuffer.</li>
+        <li><b class="has-text-white">DataView</b> - Allows retrieving of values from any position with multiple sizes.</li>
       </ul>
     </template>
   </BaseSlideTemplate>

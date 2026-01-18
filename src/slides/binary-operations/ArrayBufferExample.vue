@@ -11,20 +11,11 @@ const result = computed(() => {
   try {
     return eval(code.value)
   } catch(e) {
-    console.log(e.value);
+    console.log(e);
   }
 
 });
 
-const testBuffer = new ArrayBuffer(8);
-const byteArray = new Uint8Array(testBuffer);
-const twoByteArray = new Uint16Array(testBuffer);
-const dataView = new DataView(testBuffer);
-byteArray[0] = 0xff;
-byteArray[1] = 0x10;
-byteArray[2] = 0xa8;
-byteArray[3] = 0x3c;
-twoByteArray.length;
 </script>
 
 <template>
@@ -39,7 +30,7 @@ twoByteArray.length;
 
       <PrismEditor class="my-editor" style="width: 65vw;" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
 
-      <div style="width: 30vw; text-align: center; font-size: 1em;">
+      <div style="width: 30vw; text-align: center; font-size: 1.5em;">
         {{ result }}
       </div>
     </div>

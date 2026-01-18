@@ -21,7 +21,6 @@ const shiftDistance = ref(1);
  });
 
  function onChange(payload: { value: number, pos?: number }) {
-   debugger;
    if (payload.pos) {
      value.value = setBit(value.value, 7 - payload.pos, payload.value)
    }
@@ -53,8 +52,8 @@ function clearBit(value: number, bitPosition: number): number {
           <option :value="3">3</option>
           <option :value="4">4</option>
         </select>
-      <button class="button is-primary" @click="() => value = value << 1"> << {{ shiftDistance }} </button>
-      <button class="button is-primary" @click="() => value = value >> 1"> >> {{ shiftDistance }} </button>
+      <button class="button is-primary" @click="() => value = value << shiftDistance"> << {{ shiftDistance }} </button>
+      <button class="button is-primary" @click="() => value = value >> shiftDistance"> >> {{ shiftDistance }} </button>
       </div>
     </template>
 
@@ -69,7 +68,6 @@ function clearBit(value: number, bitPosition: number): number {
         </div>
 
       <div class="as-text">{{ value }}</div>
-      <div class="is-size-6">(base 10)</div>
 
     </template>
 

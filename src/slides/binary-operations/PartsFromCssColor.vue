@@ -32,7 +32,7 @@ const result = computed(() => {
 
       <PrismEditor class="my-editor" style="width: 60vw;" v-model="code" :highlight="code => highlight(code, languages.js, 'js')" />
 
-      <div style="width: 30vw; text-align: center; font-size: 1em;">
+      <div style="width: 35vw; text-align: center; font-size: 1.3em;">
         {{ result }}
       </div>
     </div>
