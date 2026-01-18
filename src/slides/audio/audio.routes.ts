@@ -29,7 +29,7 @@ for (let i = 0; i < bufferData.length; i++) {
   phase += phaseStep;
 }`,
 
-    `Now convert to square wave with Math.sin(phase) > 0 ? -1 : 1`,
+    `Now convert to square wave with Math.sin(phase) > 0 ? -1 : 1. ADD DUTY CYCLES`,
 
           `Then add sweep:`,
 
