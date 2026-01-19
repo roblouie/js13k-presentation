@@ -10,7 +10,7 @@ const code = ref(`// PC - 2 bytes
 // A, F, B, C, D, E, H, L - 1 byte each
 const registersView = new DataView(new ArrayBuffer(12));
 
-this.F = new CpuFlagRegister(0, registersView, -1);
+this.F = new CpuFlagRegister(0, registersView);
 this.A = new CpuRegister(1, registersView, 0b111);
 this.C = new CpuRegister(2, registersView, 0b001);
 this.B = new CpuRegister(3, registersView, 0b000);

@@ -79,8 +79,8 @@ source.start();`,
 
   { slide: AudioTiming, notes: [] },
   { slide: SweepTiming, notes: [] },
-  { slide: ApuOrchestration, notes: [] },
+    { slide: VisualizerSlide, notes: [] },
+    { slide: ApuOrchestration, notes: [] },
   { slide: Audio1, notes: [] },
-  { slide: VisualizerSlide, notes: [] },
 
 ];

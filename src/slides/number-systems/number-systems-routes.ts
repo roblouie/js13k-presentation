@@ -1,7 +1,5 @@
-import NumberSystemsIntro from "./NumberSystemsIntro.vue";
 import BaseTen from "./BaseTen.vue";
 import EarlyComputer1 from "./EarlyComputer1.vue";
-import EarlyComputer2 from "./EarlyComputer2.vue";
 import EarlyComputer3 from "./EarlyComputer3.vue";
 import CharacterDisplay from "./CharacterDisplay.vue";
 import BitsAndBytes from "./BitsAndBytes.vue";
@@ -10,7 +8,6 @@ import BytesAsColors from "./BytesAsColors.vue";
 
 
 export const numberSystemsRoutes = [
-  { slide: NumberSystemsIntro, notes: [] },
   { slide: BaseTen, notes: [
       `Just because we only have 0-9, does that mean we can only represent quantities of 0-9?`,
       `Why do we use base 10? We have ten fingers?`

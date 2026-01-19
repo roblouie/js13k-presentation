@@ -42,7 +42,11 @@ export const cpuRoutes = [
   { slide: CpuClassStage1, notes: [] },
   { slide: CartridgeHeaderSpec, notes: [`Real world example of tetris is next.`] },
   { slide: TetrisHeaderHex, notes: [`Here is the tetris rom in a hex editor. A hex editor lets you see the bytes of the file`,
-    `On the right it shows those bytes as ascii text.`] },
+    `On the right it shows those bytes as ascii text.`,
+      `Talk about interpreting bytes, starting with ascii for tetris, then nintendo logo format, then cpu instructions`,
+      `Our ProgramCounter starts at 0x100, so next we're going to look at what 00 means as a cpu instruction.`,
+
+    ] },
   { slide: Nop, notes: [
       `Talk about games being written in assembly. NOP command goes in code editor, 0 comes out`
     ] },
@@ -53,6 +57,7 @@ export const cpuRoutes = [
         when program counter points to that byte, look it up and run it.`
     ] },
   { slide: TetrisHeaderHex, notes: [
+
       `This is a good time to talk about low byte - hight byte, and talk about human reading vs computer, 
       and show the address.`
     ] },
@@ -61,13 +66,16 @@ export const cpuRoutes = [
       `Hex editor shows hex, gameboy manual shows binary, so conversion up top.`,
     ] },
   { slide: CpuClassStage3, notes: [] },
-  { slide: TetrisHeaderHex, notes: [] },
+  { slide: TetrisHeaderHex, notes: [
+
+    ] },
   { slide: LoadImmediate, notes: [
       `Remember our cpu loads data from meory into registers to do it's work. Here is a command for 
       loading data from memory into a register.`,
         `Talk about the assembly, and especially about the more advanced "compilation" with the register codes.`,
         `Show the different register codes changing the value in the top bar`,
-        `Talk about how those register codes are used in every command with registers, LD, save, add, subtract`
+        `Talk about how those register codes are used in every command with registers, LD, save, add, subtract`,
+        `F register is not included, as it is a special flag register.`
     ] },
   { slide: CpuClassStage4, notes: [
       `show adding registers, then show each new command, including how each command subs out the bits
@@ -94,7 +102,9 @@ export const cpuRoutes = [
         `Good analogy for HC and C, is HC is 9+1, C is 90 + 10. 99 + 1 would turn both on.`,
         `N is for subtraction, this is ADD, so the flag is turned off`
     ] },
-  { slide: FlagRegister, notes: [] },
+  { slide: FlagRegister, notes: [
+      `Talk about convenience of the flags, speed improvement, and that some internal commands use it`
+    ] },
   { slide: FlagRegisterClass, notes: [] },
   { slide: CpuClassStage6AddInst, notes: [] },
   { slide: CpuClassStage7DecInstr, notes: [

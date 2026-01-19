@@ -14,8 +14,8 @@ import {PrismEditor} from "vue-prism-editor";
     </template>
 
     <template v-slot:default>
-      <img src="./audio-sampling.png" style="width: 60vw; margin-bottom: 1em; filter: invert()" />
-      <img src="./audio-sampling-2.png" style="width: 60vw; filter: invert()" />
+      <img src="./audio-sampling.png" style="height: 50vh; margin-bottom: 1em; filter: invert()" />
+      <img src="./audio-sampling-2.png" style="height: 25vh; filter: invert()" />
     </template>
   </BaseSlideTemplate>
 </template>
