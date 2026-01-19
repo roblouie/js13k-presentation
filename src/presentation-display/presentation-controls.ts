@@ -1,7 +1,7 @@
 import {ref} from "vue";
 
 const posFromStorage = localStorage.getItem('js13k_presentation_slide');
-const slidePos = 46 //posFromStorage ? parseInt(posFromStorage, 10) : 0;
+const slidePos = 0 //posFromStorage ? parseInt(posFromStorage, 10) : 0;
 export const routePosition = ref(slidePos);
 
 const hostControlChannel = new BroadcastChannel('HostControl');

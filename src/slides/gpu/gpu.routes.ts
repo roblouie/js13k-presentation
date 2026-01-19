@@ -28,6 +28,8 @@ import SpritesTetris from "./SpritesTetris.vue";
 import SpriteRegisters from "./SpriteRegisters.vue";
 import ObjPrioritySameX from "./ObjPrioritySameX.vue";
 import ObjPriorityByX from "./ObjPriorityByX.vue";
+import GpuRegisterImage from "./GpuRegisterImage.vue";
+import FinalGpu from "./FinalGpu.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [
@@ -59,7 +61,9 @@ export const gpuRoutes = [
         correct addresses and individual bits/bytes for different values`,
       'Next we need to talk about timing, which we have ignored so far, which is directly related to graphics card'
     ] },
-  { slide: EmulatorTiming, notes: [] },
+    { slide: GpuRegisterImage, notes: [] },
+
+    { slide: EmulatorTiming, notes: [] },
     { slide: GpuStage1, notes: [
         `Talk about drawing scanline by scanline, and the timing of that`
       ] },
@@ -111,5 +115,5 @@ export const gpuRoutes = [
   { slide: ObjPriorityByX, notes: [] },
   { slide: ObjPrioritySameX, notes: [] },
 
-    // TODO: A slide showing final(ish) gpu drawing code
+    { slide: FinalGpu, notes: [] },
 ];
