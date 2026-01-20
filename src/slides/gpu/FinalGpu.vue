@@ -104,15 +104,6 @@ const code = ref(`export class GPU {
     }
   }
 
-  private getTileCharacterIndex(tileMapIndex: number) {
-    const address = lcdControlRegister.backgroundTileMapStartAddress + tileMapIndex;
-    if (lcdControlRegister.backgroundCharacterData === 0) {
-      return memory.readSignedByte(address) + 128;
-    } else {
-      return memory.readByte(address);
-    }
-  }
-
   drawBackgroundLine() {
     const backgroundLineValues = [];
     const bytesPerCharacter = 2;
@@ -292,6 +283,15 @@ const code = ref(`export class GPU {
         }
       }
     });
+  }
+
+  private getTileCharacterIndex(tileMapIndex: number) {
+    const address = lcdControlRegister.backgroundTileMapStartAddress + tileMapIndex;
+    if (lcdControlRegister.backgroundCharacterData === 0) {
+      return memory.readSignedByte(address) + 128;
+    } else {
+      return memory.readByte(address);
+    }
   }
 
   private getTileIndexFromPixelLocation(x: number, y: number) {

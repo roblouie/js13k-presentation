@@ -26,18 +26,25 @@ import CpuClassStage8JpNz from "./CpuClassStage8JpNz.vue";
 import AssemblyExplanation from "./AssemblyExplanation.vue";
 import StackExplanation1 from "./StackExplanation1.vue";
 import CpuClassStage9StackPushPop from "./CpuClassStage9StackPushPop.vue";
+import CpuOverview from "./CpuOverview.vue";
+import CpuRegisters from "./CpuRegisters.vue";
 
 export const cpuRoutes = [
   { slide: CpuIntro, notes: [] },
-  { slide: CpuMap, notes: [
-      'Talk about the different color coded areas',
-        'For our purposes for now, jus the yellow part is what we care about for cpu',
-        'Cover the registers, PC, and SP at a super high level. Point out the side by side 8bit - 16bit nature',
-        `Make sure to talk about the PC loading data into registers to do work. 
+    { slide: CpuOverview, notes: [] },
+    { slide: CpuRegisters, notes: [
+            'Cover the registers, PC, and SP at a super high level. Point out the side by side 8bit - 16bit nature',
+            `Make sure to talk about the PC loading data into registers to do work. 
         "The registers are where the cpu runs logic". Adding, subtracting, etc.`,
-        `Main cpu flow is pull data from ram into register(s), perform operations on those values, write back to memory`,
-    ] },
-  { slide: ProgramCounter, notes: ['Talk about similarities to js where it executes line by line, jumps on function.'] },
+            `Main cpu flow is pull data from ram into register(s), perform operations on those values, write back to memory`,
+        ] },
+
+    // { slide: CpuMap, notes: [
+    //   'Talk about the different color coded areas',
+    //     'For our purposes for now, jus the yellow part is what we care about for cpu',
+    //
+    // ] },
+  // { slide: ProgramCounter, notes: ['Talk about similarities to js where it executes line by line, jumps on function.'] },
   { slide: JsDebuggerTrace1, notes: [] },
   { slide: CpuClassStage1, notes: [] },
   { slide: CartridgeHeaderSpec, notes: [`Real world example of tetris is next.`] },

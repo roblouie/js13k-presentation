@@ -30,11 +30,16 @@ import ObjPrioritySameX from "./ObjPrioritySameX.vue";
 import ObjPriorityByX from "./ObjPriorityByX.vue";
 import GpuRegisterImage from "./GpuRegisterImage.vue";
 import FinalGpu from "./FinalGpu.vue";
+import GpuVisualizerSlide from "./GpuVisualizerSlide.vue";
+import GpuOverview from "./GpuOverview.vue";
 
 export const gpuRoutes = [
   { slide: GpuIntro, notes: [
       `We talked about the memory area for character data, lets look at some of that:`
     ] },
+    { slide: GpuOverview, notes: [] },
+
+    { slide: GpuVisualizerSlide, notes: [] },
   { slide: GameboyVram, notes: [
       'Make sure to talke about palettes',
         `This is not exactly how they are stored in ram...`
@@ -53,9 +58,9 @@ export const gpuRoutes = [
   { slide: LcdcDiagram, notes: [
       `Our first external register. Lives at ff40 as seen here. Games can read and write this for graphic card info`
     ] },
-  { slide: MemoryMap, notes: [
-      `This is a good time to remind about memory registers in ff00 - ff80, as we will be using those`
-    ] },
+  // { slide: MemoryMap, notes: [
+  //     `This is a good time to remind about memory registers in ff00 - ff80, as we will be using those`
+  //   ] },
   { slide: LcdcClassImp, notes: [
       `There are a number of these types of registers that we will use to orchestrate drawing the background, sprites, and windows.`,
         `I won't be showing all of them, but they are all like this, mapped from the gameboy programming manual to the
@@ -65,11 +70,11 @@ export const gpuRoutes = [
     { slide: GpuRegisterImage, notes: [] },
 
     { slide: EmulatorTiming, notes: [] },
-    { slide: GpuStage1, notes: [
-        `Talk about drawing scanline by scanline, and the timing of that`
-      ] },
-    { slide: InstrCycleTiming, notes: [] },
-  { slide: InstructionWithCycleTime, notes: [] },
+    // { slide: GpuStage1, notes: [
+    //     `Talk about drawing scanline by scanline, and the timing of that`
+    //   ] },
+  //   { slide: InstrCycleTiming, notes: [] },
+  // { slide: InstructionWithCycleTime, notes: [] },
   { slide: MainEmuLoop, notes: [] },
   // { slide: GpuStates, notes: [] },
   // { slide: GpuStateLoop, notes: [

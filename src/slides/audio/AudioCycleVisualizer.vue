@@ -422,7 +422,7 @@ button:hover { background: rgba(255,255,255,0.12); }
   bottom: 0;
   width: 2px;
   background: rgba(0,0,0,0.0);
-  outline: 2px dashed rgba(255,255,255,0.35);
+  outline: 2px dashed rgba(255,255,255,1.0);
   outline-offset: -2px;
   pointer-events: none;
 }

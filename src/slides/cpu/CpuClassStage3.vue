@@ -9,18 +9,24 @@ const code = ref(`class Cpu {
   private programCounter = 0x100;
   private memory: Memory;
 
-  private operations: (() => void)[] = [];
+  private operations: ({ cycles: number, execute: () => void })[] = [];
 
   constructor(memory: Memory) {
     this.memory = memory;
 
     // NOP
-    this.operations[0b00_000_000] = () => {};
+    this.operations[0b00_000_000] = {
+      cycles: 1,
+      execute() {},
+    }
 
     // JMP NN
-    this.operations[0b11_000_011] = () => {
-      const addressToJumpTo = this.memory.readWord(this.programCounter);
-      this.programCounter = addressToJumpTo;
+    this.operations[0b11_000_011] = {
+      cycles: 4,
+      execute() {
+        const addressToJumpTo = this.memory.readWord(this.programCounter);
+        this.programCounter = addressToJumpTo;
+      }
     }
   }
 
@@ -28,7 +34,7 @@ const code = ref(`class Cpu {
     const operationByte = this.memory.readByte(this.programCounter);
     this.programCounter++;
     const operation = this.operations[operation];
-    operation();
+    operation.execute();
   }
 }`);
 

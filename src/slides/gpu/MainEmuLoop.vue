@@ -23,7 +23,7 @@ this.cycles -= GPU.CyclesPerFrame;
   <BaseSlideTemplate>
 
   <template v-slot:header>
-    Instruction with Cycles
+    Main Loop
   </template>
 
   <template v-slot:default>
