@@ -13,7 +13,7 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
       <div>
       <h1 class="is-size-4"></h1>
       <ul>
-        <li>Execute between 15,000 - 20,000 instructions, performing thousands of calculations, and reading and writing thousands of bytes to and from ram</li>
+        <li>Execute between 6,000 - 10,000 instructions, performing thousands of calculations, and reading and writing thousands of bytes to and from ram</li>
       </ul>
       </div>
     </template>
