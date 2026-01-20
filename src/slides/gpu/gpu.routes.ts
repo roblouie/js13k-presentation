@@ -45,7 +45,7 @@ export const gpuRoutes = [
         `This is not exactly how they are stored in ram...`
     ] },
   { slide: GameboyPalettes, notes: [] },
-  { slide: MemoryMap, notes: [] },
+  // { slide: MemoryMap, notes: [] },
   // { slide: GameboyVramMetroid, notes: [
   //     `This is ALL the graphics! Always. Games can swap them out here, but this is all the graphics the
   //     gameboy can draw at any one time. Everything we see from here out is going to just draw these tiles
@@ -115,7 +115,7 @@ export const gpuRoutes = [
 
   { slide: WindowDiagram, notes: [] },
   { slide: MetroidWindow, notes: [] },
-  { slide: WindowRegisters, notes: [] },
+  // { slide: WindowRegisters, notes: [] },
   { slide: SpritesTetris, notes: [] },
   { slide: SpriteRegisters, notes: [] },
   // { slide: ObjPriorityByX, notes: [] },

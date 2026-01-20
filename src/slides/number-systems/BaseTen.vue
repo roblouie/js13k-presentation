@@ -51,10 +51,10 @@ function onBaseChange() {
         </select>
         <button class="button is-primary" @click="addToBaseList()">Add Place</button>
         <button class="button is-danger" @click="removePlace()">Remove Place</button>
-        <label class="checkbox">
-          <input type="checkbox" v-model="isShowLabelsInBase" />
-          Labels in Base
-        </label>
+<!--        <label class="checkbox">-->
+<!--          <input type="checkbox" v-model="isShowLabelsInBase" />-->
+<!--          Labels in Base-->
+<!--        </label>-->
       </div>
     </template>
 

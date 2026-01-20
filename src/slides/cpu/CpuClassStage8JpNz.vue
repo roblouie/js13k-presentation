@@ -6,12 +6,15 @@ import {PrismEditor} from "vue-prism-editor";
 import {ref} from "vue";
 
 const code = ref(`// JP NZ
-this.operations[0b11_000_010] = () => {
-  if (!registers.F.isResultZero) {
-    const addressToJumpTo = memory.readWord(registers.programCounter.value);
-    registers.programCounter.value = addressToJumpTo;
-  } else {
-    registers.programCounter.value += 2;
+this.operations[0b11_000_010] = {
+  cycles: 4,
+  execute() {
+    if (!registers.F.isResultZero) {
+      const addressToJumpTo = memory.readWord(registers.programCounter.value);
+      registers.programCounter.value = addressToJumpTo;
+    } else {
+      registers.programCounter.value += 2;
+    }
   }
 };`);
 

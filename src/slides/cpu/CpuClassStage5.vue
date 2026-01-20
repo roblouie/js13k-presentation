@@ -7,10 +7,13 @@ import {ref} from "vue";
 
 const code = ref(`// Load R, N
 this.registers.baseRegisters.forEach(register => {
-  this.operations[(register.code << 3) + 0b110] = () => {
-    const valueToLoad = memory.readByte(registers.programCounter.value);
-    registers.programCounter.value++;
-    register.value = valueToLoad;
+  this.operations[(register.code << 3) + 0b110] = {
+    cycles: 2,
+    execute() {
+      const valueToLoad = memory.readByte(registers.programCounter.value);
+      registers.programCounter.value++;
+      register.value = valueToLoad;
+    }
   }
 });`);
 
@@ -22,7 +25,7 @@ this.registers.baseRegisters.forEach(register => {
       LD R, N Definition
     </template>
   <template v-slot:default>
-    <div class="is-flex is-align-items-center" style="height: 50vh; padding: 2em 2em 3em 2em; margin-top: -1em;">
+    <div class="is-flex is-align-items-center" style="height: 60vh; padding: 2em 2em 3em 2em; margin-top: -1em;">
 
       <PrismEditor class="my-editor" style="width: 90vw; font-size: 0.8em;" v-model="code" :highlight="code => highlight(code, languages.ts, 'ts')" />
     </div>

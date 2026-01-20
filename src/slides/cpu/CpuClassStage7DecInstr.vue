@@ -7,13 +7,16 @@ import {ref} from "vue";
 
 const code = ref(`// Dec r
 this.registers.baseRegisters.forEach(register => {
-  this.operations[(register.code << 3) + 0b101] = () => {
-    const newValue = (register.value - 1) & 0xff;
-    registers.F.isResultZero = newValue === 0;
-    registers.F.isHalfCarry = (register.value & 0x0f) === 0;
-    registers.F.isSubtraction = true;
-    register.value = newValue;
-  };
+  this.operations[(register.code << 3) + 0b101] = {
+    cycles: 1,
+    execute() {
+      const newValue = (register.value - 1) & 0xff;
+      registers.F.isResultZero = newValue === 0;
+      registers.F.isHalfCarry = (register.value & 0x0f) === 0;
+      registers.F.isSubtraction = true;
+      register.value = newValue;
+    };
+  }
 });`);
 
 </script>

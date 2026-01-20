@@ -78,7 +78,7 @@ source.start();`,
   { slide: SoundFunctions, notes: [] },
 
   { slide: AudioTiming, notes: [] },
-  { slide: SweepTiming, notes: [] },
+  // { slide: SweepTiming, notes: [] },
     { slide: VisualizerSlide, notes: [] },
     { slide: ApuOrchestration, notes: [] },
   { slide: Audio1, notes: [] },
