@@ -13,7 +13,7 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
       <div>
       <h1 class="is-size-4"></h1>
       <ul>
-        <li>Step all 4 sound function per instruction (6,000 - 9000 times) to update the position in the duty cycle, custom wave, or noise, to produce the desired frequency</li>
+        <li>Step all 4 sound function per instruction (15,000 - 20,000 times) to update the position in the duty cycle, custom wave, or noise, to produce the desired frequency</li>
         <li>Sample all 4 sound functions 735 times, resulting in 2940 samples that are averaged together for the final sound</li>
       </ul>
       </div>

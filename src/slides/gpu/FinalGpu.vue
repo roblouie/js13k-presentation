@@ -39,40 +39,30 @@ const code = ref(`export class GPU {
 
     switch (lcdStatusRegister.mode) {
       case LcdStatusMode.SearchingOAM:
-        if (this.cycleCounter >= GPU.CyclesPerScanlineOam) {
-          this.cycleCounter %= GPU.CyclesPerScanlineOam;
+        if (this.cycleCounter >= this.cyclesPerScanlineOam) { // 80 cycles
+          this.cycleCounter -= this.cyclesPerScanlineOam;
           lcdStatusRegister.mode = LcdStatusMode.TransferringDataToLCD;
         }
         break;
 
       case LcdStatusMode.TransferringDataToLCD:
-        if (this.cycleCounter >= GPU.CyclesPerScanlineVram) {
-          this.cycleCounter %= GPU.CyclesPerScanlineVram;
-
-          if (lcdStatusRegister.isHBlankInterruptSelected) {
-            interruptRequestRegister.triggerLcdStatusInterruptRequest();
-          }
-
-          lcdStatusRegister.isLineYCompareMatching = lineYRegister.value === lineYCompareRegister.value;
-          if (lcdStatusRegister.isLineYMatchingInterruptSelected && lcdStatusRegister.isLineYCompareMatching) {
-            interruptRequestRegister.triggerLcdStatusInterruptRequest();
-          }
+        if (this.cycleCounter >= this.cyclesPerScanlineVram) { // 172 cycles
+          this.cycleCounter -= this.cyclesPerScanlineVram;
 
           lcdStatusRegister.mode = LcdStatusMode.InHBlank;
         }
         break;
 
       case LcdStatusMode.InHBlank:
-        if (this.cycleCounter >= GPU.CyclesPerHBlank) {
+        if (this.cycleCounter >= GPU.CyclesPerHBlank) { // 204 cycles
           this.drawScanline();
 
-          this.cycleCounter %= GPU.CyclesPerHBlank;
+          this.cycleCounter -= GPU.CyclesPerHBlank;
 
           lineYRegister.value++;
 
-          if (lineYRegister.value === GPU.ScreenHeight) {
+          if (lineYRegister.value === GPU.ScreenHeight) { // 144 lines
             lcdStatusRegister.mode = LcdStatusMode.InVBlank;
-            interruptRequestRegister.triggerVBlankInterruptRequest();
           } else {
             lcdStatusRegister.mode = LcdStatusMode.SearchingOAM;
           }
@@ -81,19 +71,13 @@ const code = ref(`export class GPU {
 
       case LcdStatusMode.InVBlank:
         if (this.cycleCounter >= GPU.CyclesPerScanline) {
-          lcdStatusRegister.isLineYCompareMatching = lineYRegister.value === lineYCompareRegister.value;
-          if (lcdStatusRegister.isLineYMatchingInterruptSelected && lcdStatusRegister.isLineYCompareMatching) {
-            interruptRequestRegister.triggerLcdStatusInterruptRequest();
-          }
-
           lineYRegister.value++;
 
-          this.cycleCounter %= GPU.CyclesPerScanline;
+          this.cycleCounter -= GPU.CyclesPerScanline;
 
-          if (lineYRegister.value === GPU.HeightIncludingOffscreen) {
+          if (lineYRegister.value === GPU.HeightIncludingOffscreen) { // 154 lines
             lcdStatusRegister.mode = LcdStatusMode.SearchingOAM;
             lineYRegister.value = 0;
-            this.windowLinesDrawn = 0;
           }
         }
         break;

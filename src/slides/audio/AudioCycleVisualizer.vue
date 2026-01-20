@@ -100,7 +100,7 @@ const cpuHz = 4_194_304;
 
 const freqHz = ref(440);
 const dutyIndex = ref(2); // 0..3
-const cyclesPerTick = ref(12);
+const cyclesPerTick = ref(1);
 
 const running = ref(true);
 

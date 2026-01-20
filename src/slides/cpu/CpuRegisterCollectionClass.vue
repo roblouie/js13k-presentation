@@ -19,16 +19,10 @@ this.D = new CpuRegister(5, registersView, 0b010);
 this.L = new CpuRegister(6, registersView, 0b101);
 this.H = new CpuRegister(7, registersView, 0b100);
 
-this.AF = new DoubleCpuRegister(0, registersView, 0b11);
-this.BC = new DoubleCpuRegister(2, registersView, 0b00);
-this.DE = new DoubleCpuRegister(4, registersView, 0b01);
-this.HL = new DoubleCpuRegister(6, registersView, 0b10);
-
 this.programCounter = new DoubleCpuRegister(8, registersView, -1);
 this.stackPointer = new DoubleCpuRegister(10, registersView, 0b11);
 
-this.baseRegisters = [this.A, this.B, this.C, this.D, this.E, this.H, this.L];
-this.registerPairs = [this.AF, this.BC, this.DE, this.HL, this.stackPointer];`);
+this.baseRegisters = [this.A, this.B, this.C, this.D, this.E, this.H, this.L];`);
 
 </script>
 

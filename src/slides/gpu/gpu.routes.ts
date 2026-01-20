@@ -79,14 +79,14 @@ export const gpuRoutes = [
   { slide: BackgroundGuideImage, notes: [] },
   { slide: TetrisBackground, notes: [] },
   { slide: MetroidBackground, notes: [] },
-  { slide: BackgroundPixelToDraw, notes: [
-      `Mention that we want to draw the pixel at position 0, 2 from tile 83. Explain the math at a basic level`
-    ] },
-  { slide: BackgroundFindBlock, notes: [
-      `As the graphics card, all we know up front is that we are drawing pixels for a scanline.`,
-        `We need to figure out what tile the current pixel lives in`
-    ] },
-  { slide: BackgroundGuideImage, notes: [] },
+  // { slide: BackgroundPixelToDraw, notes: [
+  //     `Mention that we want to draw the pixel at position 0, 2 from tile 83. Explain the math at a basic level`
+  //   ] },
+  // { slide: BackgroundFindBlock, notes: [
+  //     `As the graphics card, all we know up front is that we are drawing pixels for a scanline.`,
+  //       `We need to figure out what tile the current pixel lives in`
+  //   ] },
+  // { slide: BackgroundGuideImage, notes: [] },
   // { slide: TileFound, notes: [
   //     `We found the tile, but we're only drawing a single pixel. Which value do we want?`
   //   ] },
@@ -113,8 +113,8 @@ export const gpuRoutes = [
   { slide: WindowRegisters, notes: [] },
   { slide: SpritesTetris, notes: [] },
   { slide: SpriteRegisters, notes: [] },
-  { slide: ObjPriorityByX, notes: [] },
-  { slide: ObjPrioritySameX, notes: [] },
+  // { slide: ObjPriorityByX, notes: [] },
+  // { slide: ObjPrioritySameX, notes: [] },
 
     { slide: FinalGpu, notes: [] },
 ];
