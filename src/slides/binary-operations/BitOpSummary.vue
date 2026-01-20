@@ -16,7 +16,7 @@ import BaseSlideTemplate from "@/BaseSlideTemplate.vue";
         <li><b class="has-text-white">&</b> - Binary AND operation, allows clearing or keeping bits from a larger value.</li>
         <li><b class="has-text-white">|</b> - Binary OR operation, allows setting individual bits in a larger value.</li>
         <li><b class="has-text-white"><< >></b> - Binary SHIFT operation, shifts bit position. Since each position is a power of 2,
-        has the effect of doubling (>>) or halving (<<) a value. Also allows removing lower bits while shifting values down.</li>
+        has the effect of doubling (<<) or halving (>>) a value. Also allows removing lower bits while shifting values down.</li>
 
       </ul>
       </div>

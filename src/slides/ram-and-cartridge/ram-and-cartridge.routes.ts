@@ -20,6 +20,6 @@ everything is powered by writing to memory addresses`,
         the cpu just reads and writes memory, it doesn't care if thats on the cartridge or device.`
     ] },
   { slide: GbCartridgeClass, notes: [] },
-  { slide: LoadGameAndRam, notes: [] },
+  // { slide: LoadGameAndRam, notes: [] },
 
 ];

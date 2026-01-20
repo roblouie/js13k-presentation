@@ -21,7 +21,7 @@ const code = ref(`class Memory {
   }
 
   private isAccessingCartridge(address: number): boolean {
-    return address <= 0x7FFF;
+    return address < 0x8000;
   }
 
   readByte(address: number) {

@@ -9,13 +9,13 @@ import BitOpSummary from "./BitOpSummary.vue";
 
 export const bitwiseOpsRoutes = [
   { slide: BinaryOperationsIntro, notes: [] },
-  { slide: BitwiseOr, notes: [
-      `Point out that you can set bits with this`
-    ] },
-  { slide: BitwiseAnd, notes: [
-      `Point out that you can clear bits with this`
-    ] },
-  { slide: BitShift, notes: [] },
+  // { slide: BitwiseOr, notes: [
+  //     `Point out that you can set bits with this`
+  //   ] },
+  // { slide: BitwiseAnd, notes: [
+  //     `Point out that you can clear bits with this`
+  //   ] },
+  // { slide: BitShift, notes: [] },
   { slide: PartsFromCssColor, notes: [
       `First to .toString() with 10, 2, and 16 to show the number in different bases`,
       `Then show getting just the blue value with bitmask`,

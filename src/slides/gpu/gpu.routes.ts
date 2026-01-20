@@ -41,14 +41,15 @@ export const gpuRoutes = [
     ] },
   { slide: GameboyPalettes, notes: [] },
   { slide: MemoryMap, notes: [] },
-  { slide: GameboyVramMetroid, notes: [
-      `This is ALL the graphics! Always. Games can swap them out here, but this is all the graphics the
-      gameboy can draw at any one time. Everything we see from here out is going to just draw these tiles
-      at different positions in different layers.`
-    ] },
+  // { slide: GameboyVramMetroid, notes: [
+  //     `This is ALL the graphics! Always. Games can swap them out here, but this is all the graphics the
+  //     gameboy can draw at any one time. Everything we see from here out is going to just draw these tiles
+  //     at different positions in different layers.`
+  //   ] },
   { slide: GbDrawingModes, notes: [
       'To implement these three drawing modes, we first need to account for how they are controlled.'
     ] },
+    // TODO: One new slide here for overview of graphics card behavior
   { slide: LcdcDiagram, notes: [
       `Our first external register. Lives at ff40 as seen here. Games can read and write this for graphic card info`
     ] },
@@ -70,11 +71,11 @@ export const gpuRoutes = [
     { slide: InstrCycleTiming, notes: [] },
   { slide: InstructionWithCycleTime, notes: [] },
   { slide: MainEmuLoop, notes: [] },
-  { slide: GpuStates, notes: [] },
-  { slide: GpuStateLoop, notes: [
-      `We cycle through the different states, only taking action in hblank where we draw the scanline`,
-        `Otherwise we simply keep other graphics card registers up to date so game code can read from them`
-    ] },
+  // { slide: GpuStates, notes: [] },
+  // { slide: GpuStateLoop, notes: [
+  //     `We cycle through the different states, only taking action in hblank where we draw the scanline`,
+  //       `Otherwise we simply keep other graphics card registers up to date so game code can read from them`
+  //   ] },
   { slide: BackgroundGuideImage, notes: [] },
   { slide: TetrisBackground, notes: [] },
   { slide: MetroidBackground, notes: [] },
@@ -86,26 +87,26 @@ export const gpuRoutes = [
         `We need to figure out what tile the current pixel lives in`
     ] },
   { slide: BackgroundGuideImage, notes: [] },
-  { slide: TileFound, notes: [
-      `We found the tile, but we're only drawing a single pixel. Which value do we want?`
-    ] },
-  { slide: BackgroundFindUpperLeft, notes: [
-      `Walk through the math`,
-        `Now we know what pixel in what tile to draw for our single pixel of our scanline,
-        but how are the pixels stored in data?`
-    ] },
-  { slide: BackgroundPixelToDraw, notes: [] },
-  { slide: TileLaidOUt, notes: [
-      `Talk about 16 bytes per tile allowing us to take our tile index and multiply by 16 to get the address of our tile`,
-        `Then we can use the pixel y position in the tile times two to get the address of the row of pixels, 
-        in our case, row 2 * 2 bytes = byte 4. We can read that 16-bit value, then use pixel x position to find our two bits`,
-        `Then we use that to look up the color in the background palette, and draw the color to the screen.`,
-        `Summary: This is a little difficult to think about conceptually with allthe lookups, but it works like this:
-        As the graphics card, we only know where the background is scrolled to and what pixel in what scanline to draw.
-        We have to use that to go find which tile to read from memory, and then which pixel in that tile.
-        We need a series of lookups to go from scrolled pixel position, to tile, to pixel in tile.`,
-        `The good news is: ALL OTHER LAYERS USE THIS LOGIC`
-    ] },
+  // { slide: TileFound, notes: [
+  //     `We found the tile, but we're only drawing a single pixel. Which value do we want?`
+  //   ] },
+  // { slide: BackgroundFindUpperLeft, notes: [
+  //     `Walk through the math`,
+  //       `Now we know what pixel in what tile to draw for our single pixel of our scanline,
+  //       but how are the pixels stored in data?`
+  //   ] },
+  // { slide: BackgroundPixelToDraw, notes: [] },
+  // { slide: TileLaidOUt, notes: [
+  //     `Talk about 16 bytes per tile allowing us to take our tile index and multiply by 16 to get the address of our tile`,
+  //       `Then we can use the pixel y position in the tile times two to get the address of the row of pixels,
+  //       in our case, row 2 * 2 bytes = byte 4. We can read that 16-bit value, then use pixel x position to find our two bits`,
+  //       `Then we use that to look up the color in the background palette, and draw the color to the screen.`,
+  //       `Summary: This is a little difficult to think about conceptually with allthe lookups, but it works like this:
+  //       As the graphics card, we only know where the background is scrolled to and what pixel in what scanline to draw.
+  //       We have to use that to go find which tile to read from memory, and then which pixel in that tile.
+  //       We need a series of lookups to go from scrolled pixel position, to tile, to pixel in tile.`,
+  //       `The good news is: ALL OTHER LAYERS USE THIS LOGIC`
+  //   ] },
 
   { slide: WindowDiagram, notes: [] },
   { slide: MetroidWindow, notes: [] },

@@ -19,7 +19,7 @@ this.registers.baseRegisters.forEach(register => {
 <template>
   <BaseSlideTemplate>
     <template v-slot:header>
-      New LD R, N Definition
+      LD R, N Definition
     </template>
   <template v-slot:default>
     <div class="is-flex is-align-items-center" style="height: 50vh; padding: 2em 2em 3em 2em; margin-top: -1em;">

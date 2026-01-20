@@ -57,56 +57,54 @@ export const cpuRoutes = [
         when program counter points to that byte, look it up and run it.`
     ] },
   { slide: TetrisHeaderHex, notes: [
-
-      `This is a good time to talk about low byte - hight byte, and talk about human reading vs computer, 
+      `This is a good time to talk about low byte - high byte, and talk about human reading vs computer, 
       and show the address.`
     ] },
   { slide: JpInstr, notes: [
       `Explain JP nn assembly, and low and high byte`,
       `Hex editor shows hex, gameboy manual shows binary, so conversion up top.`,
     ] },
-  { slide: CpuClassStage3, notes: [] },
-  { slide: TetrisHeaderHex, notes: [
-
+  { slide: CpuClassStage3, notes: [
+      `Talk about program counter not being a byte, so not being fully correct`,
+        `Before we fix that, lets look at a cpu command that uses other registers too`,
     ] },
   { slide: LoadImmediate, notes: [
-      `Remember our cpu loads data from meory into registers to do it's work. Here is a command for 
+      `Remember our cpu loads data from meory into registers to do it's work. Here is a command for
       loading data from memory into a register.`,
         `Talk about the assembly, and especially about the more advanced "compilation" with the register codes.`,
         `Show the different register codes changing the value in the top bar`,
         `Talk about how those register codes are used in every command with registers, LD, save, add, subtract`,
         `F register is not included, as it is a special flag register.`
     ] },
-  { slide: CpuClassStage4, notes: [
-      `show adding registers, then show each new command, including how each command subs out the bits
-      for the register, and which register is used`,
-        `Then talk about this being "pseudo-code", and messy. This is just one command that has exploded to
-        8 commands. And each register isn't a byte / byte pair. We should fix these things.`,
-        `"We should associate 111 with A, 000 with B, etc, since they are always used together.`
-    ] },
-
+  // { slide: CpuClassStage4, notes: [
+  //     `show adding registers, then show each new command, including how each command subs out the bits
+  //     for the register, and which register is used`,
+  //       `Then talk about this being "pseudo-code", and messy. This is just one command that has exploded to
+  //       8 commands. And each register isn't a byte / byte pair. We should fix these things.`,
+  //       `"We should associate 111 with A, 000 with B, etc, since they are always used together.`
+  //   ] },
+  //
   { slide: CpuRegisterClass, notes: [
       `In summary, we have associated the register code with the register, and allowed reading and writing as a byte`
     ] },
-  { slide: DoubleCpuRegisterClass, notes: [
-      `If you remember, the CPU can also read and write register pairs as 16-bit values, so this is used for that`,
-        `AF, BC, etc`,
-    ] },
+  // { slide: DoubleCpuRegisterClass, notes: [
+  //     `If you remember, the CPU can also read and write register pairs as 16-bit values, so this is used for that`,
+  //       `AF, BC, etc`,
+  //   ] },
   { slide: CpuRegisterCollectionClass, notes: [
       `Make sure to scroll down to show arrays!!!`
     ] },
-  { slide: CpuClassStage4Comparison, notes: [] },
   { slide: CpuClassStage5, notes: [] },
-  { slide: AddAInstruction, notes: [
-      `Talk about the flag register, and how it helps knowing the result of what just happened.`,
-        `Good analogy for HC and C, is HC is 9+1, C is 90 + 10. 99 + 1 would turn both on.`,
-        `N is for subtraction, this is ADD, so the flag is turned off`
-    ] },
+  // { slide: AddAInstruction, notes: [
+  //     `Talk about the flag register, and how it helps knowing the result of what just happened.`,
+  //       `Good analogy for HC and C, is HC is 9+1, C is 90 + 10. 99 + 1 would turn both on.`,
+  //       `N is for subtraction, this is ADD, so the flag is turned off`
+  //   ] },
   { slide: FlagRegister, notes: [
       `Talk about convenience of the flags, speed improvement, and that some internal commands use it`
     ] },
   { slide: FlagRegisterClass, notes: [] },
-  { slide: CpuClassStage6AddInst, notes: [] },
+  // { slide: CpuClassStage6AddInst, notes: [] },
   { slide: CpuClassStage7DecInstr, notes: [
       `This is like the -- instruction in js`
     ] },
@@ -122,8 +120,12 @@ export const cpuRoutes = [
         `How does it know where to return from? We don't say return to line 128. If we did it wouldn't be a very flexible function
         it can be run from anywhere and return to anywhere...but how?`
     ] },
-  { slide: StackExplanation1, notes: [] },
-  { slide: CpuClassStage9StackPushPop, notes: [] },
-
-    // TODO: Slides with call and return instructions
+  { slide: StackExplanation1, notes: [
+      `I won't be showing CALL and RET, but they work like jump, except the modify the stack pointer`
+    ] },
+  { slide: CpuClassStage9StackPushPop, notes: [
+      `This covers the core concepts of the CPU. There are of course many other commands that I can't get into here,
+      but this covers the core loop of looking up commands wiht the program counter, managing stack, and doing logic with
+      registers.`
+    ] },
 ];

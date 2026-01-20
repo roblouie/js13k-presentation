@@ -8,9 +8,9 @@ import {ref} from "vue";
 const code = ref(`// Add A, r
 this.registers.baseRegisters.forEach(register => {
   this.operations[0b10000000 + register.code] = () => {
-    const newValue = accumulatorVal + toAdd;
+    const newValue = registers.A.value + register.value;
     registers.F.isResultZero = (newValue & 0xff) === 0;
-    registers.F.isHalfCarry = ((accumulatorVal & 0x0f) + (toAdd & 0x0f)) > 0x0f;
+    registers.F.isHalfCarry = ((registers.A.value & 0x0f) + (register.value & 0x0f)) > 0x0f;
     registers.F.isSubtraction = false;
     registers.F.isCarry = newValue > 0xff;
     registers.A.value = newValue;

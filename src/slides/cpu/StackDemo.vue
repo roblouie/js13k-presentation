@@ -95,6 +95,7 @@ const spStyle = computed(() => ({
 }
 .spArrow {
   position: absolute;
+  width: 200px;
   left: 0;
   top: 0;
   height: 44px;
