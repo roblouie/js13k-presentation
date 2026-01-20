@@ -3,6 +3,7 @@ import CpuSummary from "./CpuSummary.vue";
 import GpuSummary from "./GpuSummary.vue";
 import ApuSummary from "./ApuSummary.vue";
 import EmulatorShowcase from "./EmulatorShowcase.vue";
+import QRCodes from "./QRCodes.vue";
 
 export const summaryRoutes = [
   { slide: SummaryOpening, notes: [] },
@@ -10,4 +11,6 @@ export const summaryRoutes = [
   { slide: GpuSummary, notes: [] },
   { slide: ApuSummary, notes: [] },
   { slide: EmulatorShowcase, notes: [] },
+  { slide: QRCodes, notes: [] },
+
 ];
